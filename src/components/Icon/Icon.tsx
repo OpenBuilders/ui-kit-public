@@ -1,31 +1,17 @@
-import React from "react";
-import { IconName } from "./types";
-import { icons } from "./icons";
+import { IconProps } from "./types";
+
 import styles from "./Icon.module.scss";
 import cn from "classnames";
+import { useIcons } from "./IconContextUtils";
 
-interface IconProps {
-  name: IconName;
-  size?: number;
-  fullSize?: boolean;
-  color?:
-    | "primary"
-    | "secondary"
-    | "tertiary"
-    | "accent"
-    | "destructive"
-    | "warning"
-    | "success";
-  className?: string;
-}
-
-export const Icon: React.FC<IconProps> = ({
+export const Icon = ({
   name,
-  size = 16,
-  fullSize = false,
-  color = "primary",
+  size = "16",
+  color = "default",
   className,
-}) => {
+  borderRadius = "0",
+}: IconProps) => {
+  const icons = useIcons();
   const IconComponent = icons[name];
 
   if (!IconComponent) {
@@ -33,12 +19,23 @@ export const Icon: React.FC<IconProps> = ({
     return null;
   }
 
-  const sizeStyle = fullSize ? `100%` : `${size}px`;
+  const sizeStyle = size === "full" ? `100%` : `${size}px`;
+  const borderRadiusStyle =
+    borderRadius === "full" ? `50%` : `${borderRadius}px`;
 
   return (
     <div
-      style={{ width: sizeStyle, height: sizeStyle, minWidth: sizeStyle }}
-      className={cn(styles.icon, styles[`color-${color}`], className)}
+      style={{
+        width: sizeStyle,
+        height: sizeStyle,
+        minWidth: sizeStyle,
+        borderRadius: borderRadiusStyle,
+      }}
+      className={cn(
+        styles.icon,
+        color !== "default" && styles[`color-${color}`],
+        className
+      )}
     >
       <IconComponent />
     </div>
