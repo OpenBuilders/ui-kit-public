@@ -1,0 +1,67 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.color-primary {
+  color: var(--color-foreground-primary);
+
+  path {
+    fill: var(--color-foreground-primary);
+  }
+}
+
+.color-secondary {
+  color: var(--color-foreground-secondary);
+
+  path {
+    fill: var(--color-foreground-secondary);
+  }
+}
+
+.color-tertiary {
+  color: var(--color-foreground-tertiary);
+
+  path {
+    fill: var(--color-foreground-tertiary);
+  }
+}
+
+.color-accent {
+  color: var(--color-accent-primary);
+
+  path {
+    fill: var(--color-accent-primary);
+  }
+}
+
+.color-destructive {
+  color: var(--color-state-destructive);
+
+  path {
+    fill: var(--color-state-destructive);
+  }
+}
+
+.color-warning {
+  color: var(--color-state-warning);
+
+  path {
+    fill: var(--color-state-warning);
+  }
+}
+
+.color-success {
+  color: var(--color-state-success);
+
+  path {
+    fill: var(--color-state-success);
+  }
+}
