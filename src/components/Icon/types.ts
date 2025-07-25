@@ -1,4 +1,4 @@
-export type ActionIconName = "cross";
+export type ActionIconName = "cross" | "chevron";
 
 export type IconName = ActionIconName;
 

@@ -1,5 +1,20 @@
 .text {
-  color: var(--color-background-base);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.color-primary {
+  color: var(--color-foreground-primary);
+}
+
+.color-secondary {
+  color: var(--color-foreground-secondary);
+}
+
+.color-tertiary {
+  color: var(--color-foreground-tertiary);
 }
 
 .type-hero {

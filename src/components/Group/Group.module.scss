@@ -1,0 +1,21 @@
+.group {
+  background-color: var(--color-background-secondary);
+  overflow: hidden;
+  border-radius: 10px;
+
+  [data-group-item] {
+    overflow: hidden;
+    border-radius: 0;
+
+    [data-group-item-line] {
+      left: var(--left-gap);
+      opacity: 1;
+    }
+
+    &:last-child {
+      [data-group-item-line] {
+        opacity: 0;
+      }
+    }
+  }
+}
