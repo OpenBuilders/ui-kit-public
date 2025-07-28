@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:all": "yarn build && yarn build-storybook",
-    "build:demo": "yarn build-storybook && cp -r storybook-static dist/storybook",
+    "build:demo": "yarn build && yarn build-storybook && mkdir -p dist/storybook && cp -r storybook-static/* dist/storybook/",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
