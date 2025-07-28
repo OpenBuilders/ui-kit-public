@@ -15,6 +15,7 @@ const meta: Meta<typeof Icon> = {
     color: {
       control: { type: "select" },
       options: [
+        "default",
         "primary",
         "secondary",
         "tertiary",
