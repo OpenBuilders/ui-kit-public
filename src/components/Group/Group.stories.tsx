@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Group } from "./Group";
 
-import { Icon, GroupItem, Toggle } from "@components";
+import { Icon, GroupItem, Toggle, Text } from "@components";
 import { useState } from "storybook/internal/preview-api";
 
 const meta: Meta<typeof Group> = {
@@ -25,6 +25,18 @@ const meta: Meta<typeof Group> = {
   args: {
     header: "Some header",
     footer: "Some footer",
+    action: (
+      <Text
+        type="caption1"
+        color="accent"
+        uppercase
+        onClick={() => {
+          console.log("clicked");
+        }}
+      >
+        Some action
+      </Text>
+    ),
   },
 };
 
