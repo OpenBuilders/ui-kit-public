@@ -23,6 +23,10 @@ const meta: Meta<typeof GroupItem> = {
       control: { type: "boolean" },
     },
   },
+  args: {
+    text: "Some title",
+    description: "Some description",
+  },
 };
 
 export default meta;
@@ -31,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     return (
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", padding: "16px" }}>
         <GroupItem
           {...args}
           before={
@@ -40,9 +44,14 @@ export const Default: Story = {
               style={{ borderRadius: "6px" }}
             />
           }
-          after={<Icon name="chevron" size="16" />}
-          text="Some title"
-          description="Some description"
+          after={
+            <Icon
+              name="chevron"
+              size="16"
+              color="tertiary"
+              colorType="stroke"
+            />
+          }
           onClick={() => {
             console.log("clicked");
           }}

@@ -41,7 +41,7 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
           }}
         >
           <div style={{ marginLeft: 16 }}>
-            <Text type="caption1" color="tertiary" uppercase>
+            <Text type="caption1" color="secondary" uppercase>
               {header}
             </Text>
           </div>
@@ -62,7 +62,7 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
       </div>
       {footer && (
         <div style={{ margin: "6px 0 0 16px" }}>
-          <Text type="caption1" color="tertiary">
+          <Text type="caption1" color="secondary">
             {footer}
           </Text>
         </div>

@@ -8,6 +8,7 @@ export const Icon = ({
   name,
   size = "16",
   color = "default",
+  colorType = "fill",
   className,
   borderRadius = "0",
 }: IconProps) => {
@@ -33,7 +34,7 @@ export const Icon = ({
       }}
       className={cn(
         styles.icon,
-        color !== "default" && styles[`color-${color}`],
+        color !== "default" && styles[`color-${color}-${colorType}`],
         className
       )}
     >

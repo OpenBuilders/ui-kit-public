@@ -21,6 +21,10 @@ const meta: Meta<typeof Group> = {
       control: { type: "object" },
     },
   },
+  args: {
+    header: "Some header",
+    footer: "Some footer",
+  },
 };
 
 export default meta;
@@ -29,7 +33,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     return (
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", padding: "16px" }}>
         <Group {...args}>
           <GroupItem
             before={
@@ -38,7 +42,14 @@ export const Default: Story = {
                 style={{ borderRadius: "6px" }}
               />
             }
-            after={<Icon name="chevron" size="16" />}
+            after={
+              <Icon
+                name="chevron"
+                size="16"
+                color="tertiary"
+                colorType="stroke"
+              />
+            }
             text="Some title"
             description="Some description"
             onClick={() => {
@@ -52,7 +63,14 @@ export const Default: Story = {
                 style={{ borderRadius: "6px" }}
               />
             }
-            after={<Icon name="chevron" size="16" />}
+            after={
+              <Icon
+                name="chevron"
+                size="16"
+                color="tertiary"
+                colorType="stroke"
+              />
+            }
             text="Some title"
           />
           <GroupItem
