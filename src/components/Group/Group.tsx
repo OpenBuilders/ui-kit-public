@@ -32,20 +32,13 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
   return (
     <>
       {header && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 6,
-          }}
-        >
-          <div style={{ marginLeft: 16 }}>
+        <div className={styles.header}>
+          <div className={styles.headerText}>
             <Text type="caption1" color="secondary" uppercase>
               {header}
             </Text>
           </div>
-          {action && <div style={{ marginRight: 16 }}>{action}</div>}
+          {action && <div className={styles.action}>{action}</div>}
         </div>
       )}
       <div
@@ -61,7 +54,7 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
         {children}
       </div>
       {footer && (
-        <div style={{ margin: "6px 0 0 16px" }}>
+        <div className={styles.footer}>
           <Text type="caption1" color="secondary">
             {footer}
           </Text>

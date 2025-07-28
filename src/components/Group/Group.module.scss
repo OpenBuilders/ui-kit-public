@@ -19,3 +19,23 @@
     }
   }
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.headerText {
+  margin-left: 16px;
+}
+
+.action {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.footer {
+  margin: 6px 0 0 16px;
+}

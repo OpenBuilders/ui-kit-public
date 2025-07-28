@@ -10,6 +10,7 @@ interface TextProps {
   color?: TextColor;
   uppercase?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -20,6 +21,7 @@ export const Text: React.FC<TextProps> = ({
   color = "primary",
   uppercase = false,
   className,
+  onClick,
 }) => {
   return (
     <div
@@ -31,6 +33,7 @@ export const Text: React.FC<TextProps> = ({
         uppercase && styles.uppercase,
         className
       )}
+      onClick={onClick}
     >
       {children}
     </div>

@@ -7,16 +7,6 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
-declare global {
-  interface Window {
-    Telegram?: {
-      WebApp?: {
-        colorScheme?: string;
-      };
-    };
-  }
-}
-
 const webApp = window?.Telegram?.WebApp;
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
