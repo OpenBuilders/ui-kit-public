@@ -18,14 +18,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:all": "yarn build && yarn build-storybook",
+    "build:demo": "yarn build-storybook && cp -r storybook-static dist/storybook",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "version:patch": "npm version patch",
-    "version:minor": "npm version minor",
-    "version:major": "npm version major",
-    "release": "npm run build && npm run version:patch"
+    "version:patch": "yarn version patch",
+    "version:minor": "yarn version minor",
+    "version:major": "yarn version major",
+    "release": "yarn build && yarn version:patch"
   },
   "dependencies": {
     "classnames": "^2.5.1",
