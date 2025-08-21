@@ -7,21 +7,21 @@ const meta: Meta<typeof GroupItem> = {
   component: GroupItem,
   tags: ["autodocs"],
   argTypes: {
-    text: {
-      control: { type: "text" },
-    },
-    description: {
-      control: { type: "text" },
-    },
-    before: {
-      control: { type: "object" },
-    },
-    after: {
-      control: { type: "object" },
-    },
-    disabled: {
-      control: { type: "boolean" },
-    },
+    // text: {
+    //   control: { type: "text" },
+    // },
+    // description: {
+    //   control: { type: "text" },
+    // },
+    // before: {
+    //   control: { type: "object" },
+    // },
+    // after: {
+    //   control: { type: "object" },
+    // },
+    // disabled: {
+    //   control: { type: "boolean" },
+    // },
   },
   args: {
     text: "Some title",

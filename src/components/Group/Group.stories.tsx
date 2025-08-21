@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Group } from "./Group";
 
-import { Icon, GroupItem, Toggle, Text } from "@components";
+import { Icon, GroupItem, Toggle, Text, Input } from "@components";
 import { useState } from "storybook/internal/preview-api";
 
 const meta: Meta<typeof Group> = {
@@ -9,18 +9,18 @@ const meta: Meta<typeof Group> = {
   component: Group,
   tags: ["autodocs"],
   argTypes: {
-    children: {
-      control: { type: "object" },
-    },
-    header: {
-      control: { type: "text" },
-    },
-    footer: {
-      control: { type: "text" },
-    },
-    action: {
-      control: { type: "object" },
-    },
+    // children: {
+    //   control: { type: "object" },
+    // },
+    // header: {
+    //   control: { type: "text" },
+    // },
+    // footer: {
+    //   control: { type: "text" },
+    // },
+    // action: {
+    //   control: { type: "object" },
+    // },
   },
   args: {
     header: "Some header",
@@ -46,6 +46,10 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     const [isEnabled, setIsEnabled] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+
+    const handleChange = (value: string) => setSearchValue(value);
+
     return (
       <div style={{ width: "100%", padding: "16px" }}>
         <Group {...args}>
@@ -102,6 +106,29 @@ export const Default: Story = {
             }
             text="Some title"
             description="Some description"
+          />
+          <GroupItem
+            before={
+              <img
+                src="https://placehold.co/30"
+                style={{ borderRadius: "6px" }}
+              />
+            }
+            after={
+              <Input
+                value={searchValue}
+                onChange={handleChange}
+                style={{
+                  backgroundColor: "var(--color-background-base)",
+                  padding: "4px 10px",
+                  fontSize: "14px",
+                }}
+              />
+            }
+            text="Some title"
+            onClick={() => {
+              console.log("clicked");
+            }}
           />
         </Group>
       </div>
