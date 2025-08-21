@@ -25,6 +25,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  user-select: none;
 }
 
 .headerText {
@@ -34,8 +35,10 @@
 .action {
   margin-right: 16px;
   cursor: pointer;
+  user-select: none;
 }
 
 .footer {
+  user-select: none;
   margin: 6px 0 0 16px;
 }
