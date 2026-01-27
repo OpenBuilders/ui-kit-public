@@ -56,8 +56,6 @@ const preview: Preview = {
       themes: {
         light: "light",
         dark: "dark",
-        notcoin: "notcoin",
-        hodl: "hodl",
       },
       defaultTheme: "light",
       attributeName: "theme-mode",
