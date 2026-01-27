@@ -114,12 +114,17 @@
   --palette-extraLightBackgroundGray: rgba(239, 239, 244, 1);
   --palette-darkBackgroundGray: rgba(23, 23, 23, 1);
 
-  /* opaqueSeparator — непрозрачный разделитель */
-  --palette-opaqueSeparator-light: rgba(198, 198, 200, 1);
+  /* opaqueSeparator — разделитель (light: как в iOS — очень мягкий) */
+  --palette-opaqueSeparator-light: rgba(0, 0, 0, 0.06);
   --palette-opaqueSeparator-dark: rgba(56, 56, 58, 1);
 
   /* RGB для systemFill (альфа в themes) */
   --palette-fill-rgb: 120, 120, 128;
+
+  /* ========== Corner Radius — iOS 26 (более круглое, pts) ========== */
+  --border-radius-sm: 8px;
+  --border-radius-3xl: 26px;
+  --border-radius-full: 50%;
 
   /* ========== Z-index ========== */
   --z-base: 0;

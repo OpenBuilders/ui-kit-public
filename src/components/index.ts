@@ -5,3 +5,4 @@ export * from "./Group";
 export * from "./Toggle";
 export * from "./Input";
 export * from "./Select";
+export * from "./Image";

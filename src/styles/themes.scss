@@ -33,7 +33,10 @@
     var(--tg-theme-button-color, var(--palette-blueDark-light-100)) 10%,
     transparent
   );
-  --color-button-textOverlay: var(--tg-theme-button-text-color, var(--palette-white-100));
+  --color-button-textOverlay: var(
+    --tg-theme-button-text-color,
+    var(--palette-white-100)
+  );
 
   /* Borders — opaqueSeparator */
   --color-border-separator: var(--palette-opaqueSeparator-light);
@@ -107,7 +110,10 @@
     var(--tg-theme-button-color, var(--palette-blueDark-dark-100)) 10%,
     transparent
   );
-  --color-button-textOverlay: var(--tg-theme-button-text-color, var(--palette-white-100));
+  --color-button-textOverlay: var(
+    --tg-theme-button-text-color,
+    var(--palette-white-100)
+  );
 
   /* Borders */
   --color-border-separator: var(--palette-opaqueSeparator-dark);

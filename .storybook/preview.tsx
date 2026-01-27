@@ -7,7 +7,7 @@ const withThemeBackground = (Story: React.ComponentType) => {
   return (
     <div
       style={{
-        backgroundColor: "var(--color-background-base)",
+        backgroundColor: "var(--color-background-secondary)",
         minHeight: "100vh",
         padding: 0,
         margin: 0,

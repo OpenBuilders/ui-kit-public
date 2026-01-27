@@ -118,8 +118,8 @@ export const Default: Story = {
               <Input
                 value={searchValue}
                 onChange={handleChange}
+                placeholder="Some value"
                 style={{
-                  backgroundColor: "var(--color-background-base)",
                   padding: "4px 10px",
                   fontSize: "14px",
                 }}
