@@ -2,6 +2,7 @@ import cn from "classnames";
 import { useState, useCallback, useEffect } from "react";
 
 import styles from "./Image.module.scss";
+import { SkeletonElement } from "../SkeletonElement";
 
 export interface ImageProps
   extends Omit<
@@ -68,7 +69,7 @@ export const Image = ({
   return (
     <div className={cn(styles.wrapper, className)} style={wrapperStyle}>
       {!isLoaded && (
-        <div
+        <SkeletonElement
           className={cn(styles.skeleton, isError && styles.skeletonError)}
           aria-hidden
         />

@@ -54,7 +54,6 @@ export const Dropdown = ({
   }, [active, onClose, triggerRef]);
 
   const handleSelect = (value: string | null) => {
-    // hapticFeedback("soft");
     onSelect(value);
     onClose();
   };

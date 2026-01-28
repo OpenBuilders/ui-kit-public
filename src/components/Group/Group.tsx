@@ -1,23 +1,36 @@
-import { Text } from "@components";
+import { SkeletonElement, Text } from "@components";
 
 import React, { useLayoutEffect, useRef } from "react";
+import cn from "classnames";
 
 import styles from "./Group.module.scss";
+
+interface GroupSkeleton {
+  show?: boolean;
+  styles?: React.CSSProperties;
+}
 
 interface GroupProps {
   children: React.ReactNode;
   header?: string;
   footer?: React.ReactNode | string;
   action?: React.ReactNode;
+  skeleton?: GroupSkeleton;
 }
 
-export const Group = ({ children, header, footer, action }: GroupProps) => {
+export const Group = ({
+  children,
+  header,
+  footer,
+  action,
+  skeleton,
+}: GroupProps) => {
   const groupRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (groupRef.current) {
       const items = groupRef.current.querySelectorAll(
-        "[data-group-item-border-bottom]",
+        "[data-group-item-border-bottom]"
       );
 
       // Сначала сбрасываем opacity для всех элементов
@@ -36,6 +49,19 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
       }
     }
   }, [children]); // Добавляем children в зависимости
+
+  if (skeleton?.show) {
+    return (
+      <SkeletonElement
+        className={cn(styles.group)}
+        style={{
+          height: "50px",
+          ...skeleton?.styles,
+        }}
+        aria-hidden
+      />
+    );
+  }
 
   return (
     <>

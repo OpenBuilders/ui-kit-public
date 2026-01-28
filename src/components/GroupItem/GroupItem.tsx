@@ -1,5 +1,4 @@
 import { Icon, Text } from "@components";
-// import { hapticFeedback } from "@utils";
 import cn from "classnames";
 import { useEffect, useRef, useState } from "react";
 
@@ -63,7 +62,6 @@ export const GroupItem = ({
     }
 
     if (onClick) {
-      // hapticFeedback("soft");
       onClick();
     }
   };
@@ -84,7 +82,7 @@ export const GroupItem = ({
         styles.container,
         onClick && styles.clickable,
         disabled && styles.disabled,
-        isDragging && styles.dragging,
+        isDragging && styles.dragging
       )}
       onClick={handleClick}
       data-group-item
