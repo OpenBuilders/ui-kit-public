@@ -11,16 +11,17 @@ export const Icon = ({
   colorType = "fill",
   className,
   borderRadius = "0",
+  customIcon,
 }: IconProps) => {
   const icons = useIcons();
-  const IconComponent = icons[name];
+  const IconComponent = name ? icons[name] : null;
 
-  if (!IconComponent) {
+  if (!IconComponent && !customIcon) {
     console.warn(`Icon "${name}" not found`);
     return null;
   }
 
-  const sizeStyle = size === "full" ? `100%` : `${size}px`;
+  const sizeStyle = size === "full" ? `100%` : `${size}`;
   const borderRadiusStyle =
     borderRadius === "full" ? `50%` : `${borderRadius}px`;
 
@@ -38,7 +39,8 @@ export const Icon = ({
         className
       )}
     >
-      <IconComponent />
+      {IconComponent && <IconComponent />}
+      {customIcon && customIcon}
     </div>
   );
 };
