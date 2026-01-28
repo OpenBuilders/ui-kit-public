@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { GroupItem } from "./GroupItem";
-import { Icon } from "@components";
+import { Icon, Image } from "@components";
 
 const meta: Meta<typeof GroupItem> = {
   title: "Components/GroupItem",
@@ -26,6 +26,15 @@ const meta: Meta<typeof GroupItem> = {
   args: {
     text: "Some title",
     description: "Some description",
+    before: (
+      <Image
+        src="https://picsum.photos/400/400"
+        borderRadius="6px"
+        width="30px"
+        aspectRatio="1"
+      />
+    ),
+    chevron: true,
   },
 };
 
@@ -36,26 +45,7 @@ export const Default: Story = {
   render: (args) => {
     return (
       <div style={{ width: "100%", padding: "16px" }}>
-        <GroupItem
-          {...args}
-          before={
-            <img
-              src="https://placehold.co/30"
-              style={{ borderRadius: "6px" }}
-            />
-          }
-          after={
-            <Icon
-              name="chevron"
-              size="16"
-              color="tertiary"
-              colorType="stroke"
-            />
-          }
-          onClick={() => {
-            console.log("clicked");
-          }}
-        />
+        <GroupItem {...args} />
       </div>
     );
   },

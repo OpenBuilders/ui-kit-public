@@ -6,7 +6,7 @@ import { useIcons } from "./IconContextUtils";
 
 export const Icon = ({
   name,
-  size = "16",
+  size = "full",
   color = "default",
   colorType = "fill",
   className,

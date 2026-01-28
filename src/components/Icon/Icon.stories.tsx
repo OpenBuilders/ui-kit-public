@@ -4,13 +4,16 @@ import { icons } from "./icons";
 import { IconName } from "./types";
 import { Text } from "@components";
 
+const colorTypeStrokeIcons = ["check", "chevron"];
+
 const meta: Meta<typeof Icon> = {
   title: "Components/Icon",
   component: Icon,
   tags: ["autodocs"],
   argTypes: {
     size: {
-      control: { type: "range", min: 11, max: 60, step: 1 },
+      control: { type: "text" },
+      defaultValue: "24px",
     },
     color: {
       control: { type: "select" },
@@ -32,6 +35,10 @@ const meta: Meta<typeof Icon> = {
     borderRadius: {
       control: { type: "range", min: 0, max: 60, step: 1 },
     },
+  },
+  args: {
+    size: "24px",
+    color: "primary",
   },
 };
 
@@ -66,24 +73,29 @@ export const IconsList: Story = {
             Icon View
           </Text>
         </div>
-        {Object.keys(icons).map((icon) => (
-          <div
-            key={icon}
-            style={{
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-              justifyContent: "flex-start",
-              borderBottom: "1px solid var(--color-foreground-primary)",
-              padding: "16px",
-            }}
-          >
-            <div style={{ width: "150px" }}>
-              <Text type="body">{icon}</Text>
+        {Object.keys(icons).map((icon) => {
+          const colorType = colorTypeStrokeIcons.includes(icon)
+            ? "stroke"
+            : "fill";
+          return (
+            <div
+              key={icon}
+              style={{
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                borderBottom: "1px solid var(--color-foreground-primary)",
+                padding: "16px",
+              }}
+            >
+              <div style={{ width: "150px" }}>
+                <Text type="body">{icon}</Text>
+              </div>
+              <Icon {...args} colorType={colorType} name={icon as IconName} />
             </div>
-            <Icon {...args} name={icon as IconName} />
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   },

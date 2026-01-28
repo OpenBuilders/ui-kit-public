@@ -1,56 +1,46 @@
-import { Icon } from "../Icon";
-import { Text } from "../Text";
+import { Option } from "@types";
+import { useRef, useState } from "react";
+import { Icon, Dropdown, Text } from "@components";
 import styles from "./Select.module.scss";
 
 interface SelectProps {
-  options?: {
-    value: string;
-    name: string;
-  }[];
-  onChange?: (value: string) => void;
+  options: Option[];
   value?: string | null;
-  placeholder?: string;
-  disabled?: boolean;
+  onChange: (value: string | null) => void;
 }
 
-export const Select = ({
-  options,
-  onChange,
-  value,
-  placeholder,
-  disabled,
-}: SelectProps) => {
-  const selectValue = value ?? placeholder ?? "";
+export const Select = (props: SelectProps) => {
+  const { options, value, onChange } = props;
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const selectRef = useRef<HTMLDivElement | null>(null);
+
+  const handleToggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleSelect = (value: string | null) => {
+    onChange(value);
+    setIsDropdownOpen(false);
+  };
+
   return (
-    <div className={styles.selectContainer}>
-      <div className={styles.selectMain}>
-        <Text>{selectValue}</Text>
-        <Icon name="doubleChevron" size="12" />
+    <div className={styles.select} ref={selectRef}>
+      <div className={styles.selectContainer} onClick={handleToggleDropdown}>
+        <Text type="body" color="accent">
+          {options.find((option) => option.value === value)?.label}
+        </Text>
+        <Icon name="doubleChevron" size="12px" color="accent" />
       </div>
-      <div className={styles.selectOptionsContainer}></div>
+      <Dropdown
+        active={isDropdownOpen}
+        options={options}
+        selectedValue={value}
+        onSelect={(value) => handleSelect(value)}
+        onClose={() => handleToggleDropdown()}
+        triggerRef={selectRef}
+      />
     </div>
-    // <div className={styles.selectWrapper}>
-    //   <select
-    //     className={styles.appSelect}
-    //     value={value ?? ""}
-    //     onChange={(e) => onChange?.(e.target.value)}
-    //     disabled={disabled}
-    //     dir="rtl"
-    //   >
-    //     {placeholder && (
-    //       <option dir="ltr" value="" disabled>
-    //         {placeholder}
-    //       </option>
-    //     )}
-    //     {options?.map((option) => (
-    //       <option key={option.value} dir="ltr" value={option.value}>
-    //         {option.name}
-    //       </option>
-    //     ))}
-    //   </select>
-    //   <div className={styles.icon}>
-    //     <Icon name="doubleChevron" size="12" />
-    //   </div>
-    // </div>
   );
 };

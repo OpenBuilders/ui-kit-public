@@ -9,7 +9,7 @@ export interface ImageProps
     "onLoad" | "onError" | "width" | "height"
   > {
   src: string;
-  alt: string;
+  alt?: string;
   borderRadius?: string;
   width?: string;
   height?: string;
@@ -46,7 +46,7 @@ export const Image = ({
       setIsLoaded(true);
       onLoad?.(e);
     },
-    [onLoad],
+    [onLoad]
   );
 
   const handleError = useCallback(
@@ -54,7 +54,7 @@ export const Image = ({
       setIsError(true);
       onError?.(e);
     },
-    [onError],
+    [onError]
   );
 
   const wrapperStyle = {
