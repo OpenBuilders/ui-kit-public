@@ -8,3 +8,4 @@ export * from "./Select";
 export * from "./Image";
 export * from "./Dropdown";
 export * from "./SkeletonElement";
+export * from "./Toast";
