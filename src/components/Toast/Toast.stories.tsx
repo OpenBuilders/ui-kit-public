@@ -44,7 +44,8 @@ const meta: Meta<typeof ToastDemo> = {
       defaultValue: 3000,
     },
     type: {
-      control: { type: "select", options: ["success", "error", "info"] },
+      control: { type: "radio" },
+      options: ["success", "error", "info"],
       defaultValue: "success",
     },
   },
