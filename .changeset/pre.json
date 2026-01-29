@@ -6,6 +6,7 @@
   },
   "changesets": [
     "flat-vans-cough",
-    "initial-ui-kit-release"
+    "initial-ui-kit-release",
+    "spotty-cycles-divide"
   ]
 }
