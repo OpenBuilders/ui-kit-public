@@ -18,7 +18,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
     let appliedTheme: ThemeName;
 
-    const tgScheme = webApp?.colorScheme;
+    const tgScheme = theme || webApp?.colorScheme;
     if (tgScheme === "light" || tgScheme === "dark") {
       appliedTheme = tgScheme;
     } else {

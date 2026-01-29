@@ -1,5 +1,11 @@
 # @telegram-tools/ui-kit
 
+## 0.1.0-dev.3
+
+### Patch Changes
+
+- Theme prop
+
 ## 0.1.0-dev.2
 
 ### Patch Changes
