@@ -21,7 +21,9 @@
       "require": "./dist/index.cjs",
       "style": "./dist/index.css",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./index.css": "./dist/index.css",
+    "./dist/index.css": "./dist/index.css"
   },
   "publishConfig": {
     "access": "public"
