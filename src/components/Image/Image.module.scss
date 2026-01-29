@@ -1,0 +1,47 @@
+.wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  background: var(--color-fill-tertiary);
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-fill-tertiary) 0%,
+    var(--color-fill-secondary) 50%,
+    var(--color-fill-tertiary) 100%
+  );
+  background-size: 200% 100%;
+  animation: imageSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+.skeletonError {
+  animation: none;
+  background: var(--color-fill-tertiary);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.imgLoaded {
+  opacity: 1;
+}
+
+@keyframes imageSkeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

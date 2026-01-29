@@ -35,13 +35,20 @@ const meta: Meta<typeof Text> = {
       control: { type: "radio" },
       options: ["left", "center", "right"],
     },
+    color: {
+      control: { type: "radio" },
+      options: ["primary", "secondary", "tertiary", "accent"],
+    },
+    uppercase: {
+      control: { type: "boolean" },
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   args: {
     children: "Some text",
     type: "body",

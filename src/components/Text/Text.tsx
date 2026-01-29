@@ -26,6 +26,7 @@ export const Text: React.FC<TextProps> = ({
   return (
     <div
       className={cn(
+        styles.text,
         styles[`type-${type}`],
         styles[`weight-${weight}`],
         styles[`align-${align}`],

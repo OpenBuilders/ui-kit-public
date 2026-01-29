@@ -26,7 +26,6 @@ export const Toggle = ({
   const handleToggle = () => {
     if (disabled) return null;
 
-    webApp?.HapticFeedback?.impactOccurred("soft");
     onChange(!isEnabled);
   };
 

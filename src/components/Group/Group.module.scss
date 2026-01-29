@@ -1,22 +1,17 @@
 .group {
-  background-color: var(--color-background-secondary);
-  overflow: hidden;
-  border-radius: 10px;
+  background-color: var(--color-background-section);
+  border-radius: var(--border-radius-3xl);
 
   [data-group-item] {
-    overflow: hidden;
-    border-radius: 0;
-
-    [data-group-item-line] {
-      left: var(--left-gap);
+    [data-group-item-border-bottom] {
       opacity: 1;
     }
 
-    &:last-child {
-      [data-group-item-line] {
-        opacity: 0;
-      }
-    }
+    // &:last-child {
+    //   [data-group-item-border-bottom] {
+    //     opacity: 0;
+    //   }
+    // }
   }
 }
 
@@ -25,6 +20,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  user-select: none;
 }
 
 .headerText {
@@ -34,8 +30,10 @@
 .action {
   margin-right: 16px;
   cursor: pointer;
+  user-select: none;
 }
 
 .footer {
-  margin: 6px 0 0 16px;
+  user-select: none;
+  margin: 6px 16px 0 16px;
 }

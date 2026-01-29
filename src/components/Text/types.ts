@@ -17,4 +17,10 @@ export type TextWeight = "light" | "regular" | "medium" | "bold";
 
 export type TextAlign = "left" | "center" | "right" | "stretch";
 
-export type TextColor = "primary" | "secondary" | "tertiary" | "accent";
+export type TextColor =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "accent"
+  | "danger"
+  | "white";

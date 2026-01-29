@@ -1,54 +1,67 @@
+/* ========== Light — iOS systemBackground, label, systemFill ========== */
 [theme-mode="light"] {
   --font-display: var(--font-base);
 
+  /* Backgrounds — systemBackground, secondarySystemBackground, tertiarySystemBackground */
   --color-background-base: var(--palette-white-100);
   --color-background-secondary: var(--palette-grey6-light);
   --color-background-section: var(--palette-white-100);
   --color-background-overlay: var(--palette-black-40);
   --color-background-modal: var(--palette-white-100);
 
+  /* Label — label, secondaryLabel, tertiaryLabel, quaternaryLabel, placeholderText */
   --color-foreground-primary: var(--palette-black-100);
-  --color-foreground-secondary: var(--palette-grey1-light);
-  --color-foreground-tertiary: var(--palette-grey3-light);
+  --color-foreground-secondary: rgba(60, 60, 67, 0.6);
+  --color-foreground-tertiary: rgba(60, 60, 67, 0.3);
+  --color-foreground-quaternary: rgba(60, 60, 67, 0.18);
+  --color-placeholder: rgba(60, 60, 67, 0.3);
 
+  /* Accent & link — systemBlue */
   --color-accent-primary: var(
     --tg-theme-button-color,
     var(--palette-blueDark-light-100)
   );
+  --color-link: var(--palette-link-light);
 
+  /* Buttons */
   --color-button-primaryBackground: var(
     --tg-theme-button-color,
     var(--palette-blueDark-light-100)
   );
-  --color-button-secondaryBackground: var(
-    color-mix(in srgb, var(--tg-theme-button-color) 10%, transparent),
-    var(--palette-blueDark-light-10)
+  --color-button-secondaryBackground: color-mix(
+    in srgb,
+    var(--tg-theme-button-color, var(--palette-blueDark-light-100)) 10%,
+    transparent
   );
   --color-button-textOverlay: var(
-    var(--tg-theme-button-text-color) var(--palette-white-100)
+    --tg-theme-button-text-color,
+    var(--palette-white-100)
   );
 
-  --color-border-separator: rgba(198, 198, 200, 1);
+  /* Borders — opaqueSeparator */
+  --color-border-separator: var(--palette-opaqueSeparator-light);
   --color-border-imageStroke: var(--palette-black-8);
 
-  --color-state-destructive: var(--palette-red-dark);
+  /* State — systemRed, systemOrange, systemGreen */
+  --color-state-destructive: var(--palette-red-light);
   --color-state-warning: var(--palette-orange-light);
   --color-state-success: var(--palette-green-light);
 
+  /* systemFill (iOS) — 120,120,128 + alpha */
+  --color-fill-system: rgba(120, 120, 128, 0.2);
+  --color-fill-secondary: rgba(120, 120, 128, 0.16);
+  --color-fill-tertiary: rgba(120, 120, 128, 0.12);
+  --color-fill-quaternary: rgba(120, 120, 128, 0.08);
+
+  /* Component-specific */
   --color-snackbar-link: var(--palette-blueLight-light);
   --color-snackbar-background: rgba(45, 45, 45, 0.8);
-
-  --color-fill-secondary: rgba(116, 116, 128, 0.16);
-  --color-fill-tertiary: rgba(116, 116, 128, 0.12);
-  --color-fill-quarternary: rgba(116, 116, 128, 0.08);
-
-  --color-bottomBar-background: rgba(242, 242, 242, 0.88);
-
+  --color-bottomBar-background: rgba(242, 242, 247, 0.88);
   --color-segmentControl-background: var(--palette-white-100);
-
   --color-quickMenu-background: var(--palette-white-60);
   --color-quickMenu-foreground: var(--palette-black-100);
 
+  /* Static (фиксированные для иконок, бейджей) */
   --color-static-black: var(--palette-black-100);
   --color-static-white: var(--palette-white-100);
   --color-static-grey: var(--palette-grey2-light);
@@ -62,67 +75,79 @@
   --color-static-purpleDark: var(--palette-purpleDark-light);
 }
 
+/* ========== Dark — systemBackground, label, systemFill ========== */
 [theme-mode="dark"] {
   --font-display: var(--font-base);
 
+  /* Backgrounds */
   --color-background-base: var(--palette-black-100);
   --color-background-secondary: var(--palette-grey6-dark);
   --color-background-section: var(--palette-grey5-dark);
   --color-background-overlay: var(--palette-black-40);
   --color-background-modal: var(--palette-grey5-dark);
 
+  /* Label */
   --color-foreground-primary: var(--palette-white-100);
-  --color-foreground-secondary: var(--palette-grey1-dark);
-  --color-foreground-tertiary: var(--palette-grey3-dark);
+  --color-foreground-secondary: rgba(235, 235, 245, 0.6);
+  --color-foreground-tertiary: rgba(235, 235, 245, 0.3);
+  --color-foreground-quaternary: rgba(235, 235, 245, 0.16);
+  --color-placeholder: rgba(235, 235, 245, 0.3);
 
+  /* Accent & link */
   --color-accent-primary: var(
     --tg-theme-button-color,
     var(--palette-blueDark-dark-100)
   );
+  --color-link: var(--palette-link-dark);
 
+  /* Buttons */
   --color-button-primaryBackground: var(
-    var(--tg-theme-button-color),
+    --tg-theme-button-color,
     var(--palette-blueDark-dark-100)
   );
-  --color-button-secondaryBackground: var(
-    color-mix(in srgb, var(--tg-theme-button-color) 10%, transparent),
-    var(--palette-blueDark-dark-12)
+  --color-button-secondaryBackground: color-mix(
+    in srgb,
+    var(--tg-theme-button-color, var(--palette-blueDark-dark-100)) 10%,
+    transparent
   );
   --color-button-textOverlay: var(
-    var(--tg-theme-button-text-color),
+    --tg-theme-button-text-color,
     var(--palette-white-100)
   );
 
-  --color-border-separator: rgba(58, 58, 60, 1);
+  /* Borders */
+  --color-border-separator: var(--palette-opaqueSeparator-dark);
   --color-border-imageStroke: var(--palette-white-8);
 
-  --color-state-destructive: var(--palette-red-light);
+  /* State */
+  --color-state-destructive: var(--palette-red-dark);
   --color-state-warning: var(--palette-orange-dark);
   --color-state-success: var(--palette-green-dark);
 
-  --color-snackbar-link: var(--palette-blueLight-light);
+  /* systemFill (iOS) — dark alphas */
+  --color-fill-system: rgba(120, 120, 128, 0.36);
+  --color-fill-secondary: rgba(120, 120, 128, 0.32);
+  --color-fill-tertiary: rgba(120, 120, 128, 0.24);
+  --color-fill-quaternary: rgba(120, 120, 128, 0.18);
+
+  /* Component-specific */
+  --color-snackbar-link: var(--palette-blueLight-dark);
   --color-snackbar-background: rgba(45, 45, 45, 0.8);
-
-  --color-fill-secondary: rgba(116, 116, 128, 0.16);
-  --color-fill-tertiary: rgba(116, 116, 128, 0.12);
-  --color-fill-quarternary: rgba(116, 116, 128, 0.08);
-
-  --color-bottomBar-background: rgba(242, 242, 242, 0.88);
-
-  --color-segmentControl-background: var(--palette-white-100);
-
+  --color-bottomBar-background: rgba(28, 28, 30, 0.88);
+  --color-segmentControl-background: var(--palette-grey5-dark);
   --color-quickMenu-background: var(--palette-white-60);
-  --color-quickMenu-foreground: var(--palette-black-100);
+  --color-quickMenu-foreground: var(--palette-white-100);
 
+  /* Static */
   --color-static-black: var(--palette-black-100);
   --color-static-white: var(--palette-white-100);
-  --color-static-grey: var(--palette-grey2-light);
-  --color-static-lightGreen: var(--palette-greenLight-light);
+  --color-static-grey: var(--palette-grey2-dark);
+  --color-static-lightGreen: var(--palette-greenLight-dark);
   --color-static-yellowNeon: rgba(255, 255, 77, 1);
-  --color-static-orange: var(--palette-orange-light);
+  --color-static-orange: var(--palette-orange-dark);
   --color-static-orangeVivid: rgba(254, 86, 0, 1);
-  --color-static-blueLight: var(--palette-blueLight-light);
-  --color-static-purpleLight: var(--palette-purpleLight-light);
-  --color-static-pink: var(--palette-pink-light);
-  --color-static-purpleDark: var(--palette-purpleDark-light);
+  --color-static-blueLight: var(--palette-blueLight-dark);
+  --color-static-purpleLight: var(--palette-purpleLight-dark);
+  --color-static-pink: var(--palette-pink-dark);
+  --color-static-purpleDark: var(--palette-purpleDark-dark);
 }

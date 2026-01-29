@@ -1,33 +1,67 @@
-import { Text } from "@components";
+import { SkeletonElement, Text } from "@components";
+
+import React, { useLayoutEffect, useRef } from "react";
+import cn from "classnames";
+
 import styles from "./Group.module.scss";
-import { useState, useEffect } from "react";
+
+interface GroupSkeleton {
+  show?: boolean;
+  styles?: React.CSSProperties;
+}
 
 interface GroupProps {
   children: React.ReactNode;
   header?: string;
   footer?: React.ReactNode | string;
   action?: React.ReactNode;
+  skeleton?: GroupSkeleton;
 }
 
-const GROUP_ITEM_GAP = 10;
-const GROUP_ITEM_LEFT_GAP = 16;
+export const Group = ({
+  children,
+  header,
+  footer,
+  action,
+  skeleton,
+}: GroupProps) => {
+  const groupRef = useRef<HTMLDivElement>(null);
 
-export const Group = ({ children, header, footer, action }: GroupProps) => {
-  const [maxLeftGap, setMaxLeftGap] = useState(0);
+  useLayoutEffect(() => {
+    if (groupRef.current) {
+      const items = groupRef.current.querySelectorAll(
+        "[data-group-item-border-bottom]"
+      );
 
-  useEffect(() => {
-    setTimeout(() => {
-      const groupItems = document.querySelectorAll("[data-group-item-before]");
-      if (groupItems) {
-        const maxWidth = Math.max(
-          ...Array.from(groupItems).map(
-            (item) => item.getBoundingClientRect().width
-          )
-        );
-        setMaxLeftGap(maxWidth);
+      // Сначала сбрасываем opacity для всех элементов
+      items.forEach((item) => {
+        if (item instanceof HTMLElement) {
+          item.style.opacity = "1";
+        }
+      });
+
+      // Затем скрываем последний элемент
+      if (items.length > 0) {
+        const lastItem = items[items.length - 1];
+        if (lastItem instanceof HTMLElement) {
+          lastItem.style.opacity = "0";
+        }
       }
-    }, 100);
-  }, [children]);
+    }
+  }, [children]); // Добавляем children в зависимости
+
+  if (skeleton?.show) {
+    return (
+      <SkeletonElement
+        className={cn(styles.group)}
+        style={{
+          height: "50px",
+          ...skeleton?.styles,
+        }}
+        aria-hidden
+      />
+    );
+  }
 
   return (
     <>
@@ -41,16 +75,7 @@ export const Group = ({ children, header, footer, action }: GroupProps) => {
           {action && <div className={styles.action}>{action}</div>}
         </div>
       )}
-      <div
-        className={styles.group}
-        style={
-          {
-            "--left-gap": `${
-              maxLeftGap + GROUP_ITEM_LEFT_GAP + GROUP_ITEM_GAP
-            }px`,
-          } as React.CSSProperties
-        }
-      >
+      <div ref={groupRef} className={styles.group}>
         {children}
       </div>
       {footer && (

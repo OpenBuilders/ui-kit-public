@@ -1,27 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Group } from "./Group";
 
-import { Icon, GroupItem, Toggle, Text } from "@components";
-import { useState } from "storybook/internal/preview-api";
+import { GroupItem, Text, Input, Image, Toggle } from "@components";
+import { useEffect, useState } from "storybook/internal/preview-api";
 
 const meta: Meta<typeof Group> = {
   title: "Components/Group",
   component: Group,
   tags: ["autodocs"],
-  argTypes: {
-    children: {
-      control: { type: "object" },
-    },
-    header: {
-      control: { type: "text" },
-    },
-    footer: {
-      control: { type: "text" },
-    },
-    action: {
-      control: { type: "object" },
-    },
-  },
   args: {
     header: "Some header",
     footer: "Some footer",
@@ -46,24 +32,38 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     const [isEnabled, setIsEnabled] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleChange = (value: string) => setSearchValue(value);
+
+    useEffect(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    }, []);
+
+    const ImageComponent = () => (
+      <Image
+        src="https://picsum.photos/400/400"
+        borderRadius="6px"
+        width="30px"
+        aspectRatio="1"
+      />
+    );
+
     return (
       <div style={{ width: "100%", padding: "16px" }}>
-        <Group {...args}>
+        <Group
+          {...args}
+          skeleton={{
+            show: isLoading,
+            styles: { height: "200px" },
+          }}
+        >
           <GroupItem
-            before={
-              <img
-                src="https://placehold.co/30"
-                style={{ borderRadius: "6px" }}
-              />
-            }
-            after={
-              <Icon
-                name="chevron"
-                size="16"
-                color="tertiary"
-                colorType="stroke"
-              />
-            }
+            before={<ImageComponent />}
+            chevron
             text="Some title"
             description="Some description"
             onClick={() => {
@@ -71,37 +71,28 @@ export const Default: Story = {
             }}
           />
           <GroupItem
-            before={
-              <img
-                src="https://placehold.co/30"
-                style={{ borderRadius: "6px" }}
-              />
-            }
-            after={
-              <Icon
-                name="chevron"
-                size="16"
-                color="tertiary"
-                colorType="stroke"
-              />
-            }
+            before={<ImageComponent />}
+            after={<Input value={searchValue} onChange={handleChange} />}
             text="Some title"
           />
           <GroupItem
-            before={
-              <img
-                src="https://placehold.co/30"
-                style={{ borderRadius: "6px" }}
-              />
-            }
+            before={<ImageComponent />}
             after={
               <Toggle
                 isEnabled={isEnabled}
-                onChange={(value) => setIsEnabled(value)}
+                onChange={() => setIsEnabled(!isEnabled)}
               />
             }
             text="Some title"
             description="Some description"
+          />
+          <GroupItem
+            before={<ImageComponent />}
+            chevron
+            text="Some title"
+            onClick={() => {
+              console.log("clicked");
+            }}
           />
         </Group>
       </div>

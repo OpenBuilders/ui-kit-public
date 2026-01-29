@@ -1,4 +1,6 @@
-export type ActionIconName = "cross" | "chevron";
+import React from "react";
+
+export type ActionIconName = "cross" | "chevron" | "doubleChevron" | "check";
 
 export type IconName = ActionIconName;
 
@@ -17,10 +19,11 @@ export type IconColor =
   | "success";
 
 export interface IconProps {
-  name: IconName;
+  name?: IconName;
   size?: string | "full";
   color?: IconColor;
   colorType?: ColorType;
   className?: string;
   borderRadius?: string | "full";
+  customIcon?: React.ReactElement;
 }
