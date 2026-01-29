@@ -41,3 +41,12 @@ export const Default: Story = {
     return <Button {...args} />;
   },
 };
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+  render: (args) => {
+    return <Button {...args} />;
+  },
+};

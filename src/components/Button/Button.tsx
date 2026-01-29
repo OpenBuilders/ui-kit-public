@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { ReactNode, useCallback } from "react";
 
 import styles from "./Button.module.scss";
+import { Spinner } from "../Spinner";
 
 interface ButtonProps {
   text?: string;
@@ -10,6 +11,7 @@ interface ButtonProps {
   onClick?(): void;
   type?: "primary" | "secondary";
   className?: string;
+  loading?: boolean;
 }
 
 export const Button = ({
@@ -19,12 +21,26 @@ export const Button = ({
   icon,
   type = "primary",
   className,
+  loading = false,
 }: ButtonProps) => {
   const handleClick = useCallback(() => {
-    if (!disabled && onClick) {
+    if (!disabled && onClick && !loading) {
       onClick();
     }
-  }, [disabled, onClick]);
+  }, [disabled, onClick, loading]);
+
+  const renderContent = useCallback(() => {
+    if (loading) {
+      return <Spinner size="16px" color="white" />;
+    }
+    return (
+      <>
+        {icon && icon}
+        {text}
+      </>
+    );
+  }, [icon, text, loading]);
+
   return (
     <button
       className={classNames(styles.button, styles[`type-${type}`], className)}
@@ -33,8 +49,7 @@ export const Button = ({
       aria-label={text}
       role="button"
     >
-      {icon && icon}
-      {text}
+      {renderContent()}
     </button>
   );
 };

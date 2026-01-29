@@ -1,0 +1,36 @@
+.spinner {
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.spinner-color-primary {
+  border: 2px solid var(--color-foreground-primary);
+  border-bottom-color: transparent;
+}
+
+.spinner-color-secondary {
+  border: 2px solid var(--color-foreground-secondary);
+  border-bottom-color: transparent;
+}
+
+.spinner-color-accent {
+  border: 2px solid var(--color-accent-primary);
+  border-bottom-color: transparent;
+}
+
+.spinner-color-white {
+  border: 2px solid var(--color-static-white);
+  border-bottom-color: transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
