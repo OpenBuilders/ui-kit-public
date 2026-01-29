@@ -5,6 +5,7 @@
     "@telegram-tools/ui-kit": "0.0.0"
   },
   "changesets": [
+    "flat-vans-cough",
     "initial-ui-kit-release"
   ]
 }
