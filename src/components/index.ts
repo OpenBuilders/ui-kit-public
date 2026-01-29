@@ -10,3 +10,4 @@ export * from "./Dropdown";
 export * from "./SkeletonElement";
 export * from "./Toast";
 export * from "./Button";
+export * from "./DialogModal";
