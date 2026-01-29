@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "dev",
+  "initialVersions": {
+    "@telegram-tools/ui-kit": "0.0.0"
+  },
+  "changesets": [
+    "initial-ui-kit-release"
+  ]
+}
