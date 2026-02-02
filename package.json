@@ -1,7 +1,7 @@
 {
   "name": "@telegram-tools/ui-kit",
   "private": false,
-  "version": "0.1.0-dev.4",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
@@ -44,8 +44,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release:changeset": "yarn build && changeset publish",
-    "release:dev": "yarn changeset && yarn version-packages && yarn build && npm publish --tag dev",
-    "release:prod": "yarn changeset && yarn version-packages && yarn build && npm publish"
+    "release:dev": "yarn changeset pre enter dev && yarn changeset && yarn version-packages && yarn build && npm publish --tag dev",
+    "release:prod": "yarn changeset && yarn changeset pre exit && yarn version-packages && yarn build && npm publish"
   },
   "dependencies": {
     "classnames": "^2.5.1",

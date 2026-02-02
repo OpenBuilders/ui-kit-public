@@ -37,29 +37,19 @@ https://ui-kit-public-fe-stage-en8vi.ondigitalocean.app/?path=/story/components-
    ```bash
    yarn changeset
    ```
-2) Version packages:
+2) Publish stable:
    ```bash
-   yarn version-packages
-   ```
-3) Publish:
-   ```bash
-   yarn release:changeset
+   yarn release:prod
    ```
 
 ### Dev pre-releases (dev tag)
-1) Enter prerelease mode:
-   ```bash
-   yarn changeset pre enter dev
-   ```
-2) Create changeset(s) and publish:
+1) Create a changeset:
    ```bash
    yarn changeset
-   yarn version-packages
-   yarn release:changeset
    ```
-3) Exit prerelease mode for stable releases:
+2) Publish dev:
    ```bash
-   yarn changeset pre exit
+   yarn release:dev
    ```
 
 ### Install dev builds
