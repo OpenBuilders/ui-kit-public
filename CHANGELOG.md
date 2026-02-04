@@ -1,5 +1,12 @@
 # @telegram-tools/ui-kit
 
+## 0.2.0
+
+### Minor Changes
+
+- Prod release
+- Prod release
+
 ## 0.1.0
 
 ### Minor Changes
