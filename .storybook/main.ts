@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config) => {
+    config.base = "./";
     // Добавляем поддержку SCSS модулей
     if (config.css) {
       config.css.modules = {
