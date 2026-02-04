@@ -28,6 +28,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenBuilders/ui-kit-public.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
