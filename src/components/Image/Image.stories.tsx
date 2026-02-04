@@ -45,3 +45,16 @@ export const Default: Story = {
   },
   render: (args) => <Image {...args} />,
 };
+
+export const Fallback: Story = {
+  args: {
+    src: "",
+    alt: "Example image",
+    fallback: "No Image",
+    aspectRatio: "1",
+    objectFit: "cover",
+    borderRadius: "50%",
+    width: "100px",
+  },
+  render: (args) => <Image {...args} />,
+};
