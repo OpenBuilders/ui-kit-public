@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -59,12 +60,8 @@ jobs:
 
       - name: Publish dev tag
         if: github.ref == 'refs/heads/dev' && steps.version_check.outputs.version_changed == 'true'
-        run: npm publish --tag dev
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag dev --provenance
 
       - name: Publish latest
         if: github.ref == 'refs/heads/main' && steps.version_check.outputs.version_changed == 'true'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance
