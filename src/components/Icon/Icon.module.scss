@@ -1,0 +1,137 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+[class*="color-"] {
+  &[class*="-fill"] {
+    path {
+      fill: var(--icon-color, currentColor);
+    }
+  }
+
+  &[class*="-stroke"] {
+    path {
+      stroke: var(--icon-color, currentColor);
+    }
+  }
+
+  &[class*="-both"] {
+    path {
+      fill: var(--icon-color, currentColor);
+      stroke: var(--icon-color, currentColor);
+    }
+  }
+}
+
+.color-primary-fill,
+.color-primary-stroke,
+.color-primary-both {
+  --icon-color: var(--color-foreground-primary);
+  color: var(--color-foreground-primary);
+}
+
+.color-secondary-fill,
+.color-secondary-stroke,
+.color-secondary-both {
+  --icon-color: var(--color-foreground-secondary);
+  color: var(--color-foreground-secondary);
+}
+
+.color-tertiary-fill,
+.color-tertiary-stroke,
+.color-tertiary-both {
+  --icon-color: var(--color-foreground-tertiary);
+  color: var(--color-foreground-tertiary);
+}
+
+.color-accent-fill,
+.color-accent-stroke,
+.color-accent-both {
+  --icon-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+}
+
+.color-destructive-fill,
+.color-destructive-stroke,
+.color-destructive-both {
+  --icon-color: var(--color-state-destructive);
+  color: var(--color-state-destructive);
+}
+
+.color-warning-fill,
+.color-warning-stroke,
+.color-warning-both {
+  --icon-color: var(--color-state-warning);
+  color: var(--color-state-warning);
+}
+
+.color-success-fill,
+.color-success-stroke,
+.color-success-both {
+  --icon-color: var(--color-state-success);
+  color: var(--color-state-success);
+}
+
+// .color-primary {
+//   color: var(--color-foreground-primary);
+
+//   path {
+//     fill: var(--color-foreground-primary);
+//   }
+// }
+
+// .color-secondary {
+//   color: var(--color-foreground-secondary);
+
+//   path {
+//     fill: var(--color-foreground-secondary);
+//   }
+// }
+
+// .color-tertiary {
+//   color: var(--color-foreground-tertiary);
+
+//   path {
+//     fill: var(--color-foreground-tertiary);
+//   }
+// }
+
+// .color-accent {
+//   color: var(--color-accent-primary);
+
+//   path {
+//     fill: var(--color-accent-primary);
+//   }
+// }
+
+// .color-destructive {
+//   color: var(--color-state-destructive);
+
+//   path {
+//     fill: var(--color-state-destructive);
+//   }
+// }
+
+// .color-warning {
+//   color: var(--color-state-warning);
+
+//   path {
+//     fill: var(--color-state-warning);
+//   }
+// }
+
+// .color-success {
+//   color: var(--color-state-success);
+
+//   path {
+//     fill: var(--color-state-success);
+//   }
+// }
