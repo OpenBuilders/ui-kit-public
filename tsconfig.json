@@ -12,7 +12,7 @@
     "module": "es2022",
     "moduleResolution": "Node",
     "declaration": true,
-    "incremental": true,
+    "incremental": false,
     "composite": false,
     "resolveJsonModule": true,
     "isolatedModules": true,

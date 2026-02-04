@@ -1,5 +1,31 @@
 # @telegram-tools/ui-kit
 
+## 0.2.0
+
+### Minor Changes
+
+- Prod release
+- Prod release
+
+## 0.1.0
+
+### Minor Changes
+
+- 3ebaef7: Initial UI kit release.
+
+### Patch Changes
+
+- a0e4e1e: Add Styles injection
+- Prod release
+- f162279: Theme prop
+- Prod release
+
+## 0.1.0-dev.5
+
+### Patch Changes
+
+- Prod release
+
 ## 0.1.0-dev.3
 
 ### Patch Changes

@@ -1,8 +1,21 @@
 /// <reference types="vitest/config" />
+import { readFileSync } from "node:fs";
 import { defineConfig, type Plugin } from "vite";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
+
+const pkg = JSON.parse(
+  readFileSync(path.resolve(__dirname, "package.json"), "utf8")
+);
+const peerDeps = pkg.peerDependencies
+  ? Object.keys(pkg.peerDependencies)
+  : [];
+const external = [
+  ...peerDeps,
+  "react/jsx-runtime",
+  "react/jsx-dev-runtime",
+];
 
 function injectCssImport(): Plugin {
   return {
@@ -36,11 +49,15 @@ export default defineConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external,
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith(".css")) return "index.css";
+          return "[name]-[hash][extname]";
         },
       },
     },
