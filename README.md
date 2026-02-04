@@ -33,5 +33,5 @@ export function Example() {
 ## Storybook
 
 ```text
-https://ui-kit-public-fe-stage-en8vi.ondigitalocean.app/
+https://ui-kit-public-fe-prod-dwbtc.ondigitalocean.app/
 ```
