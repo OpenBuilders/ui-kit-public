@@ -37,6 +37,24 @@
   opacity: 1;
 }
 
+.fallback {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fallbackText {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  font-size: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 510;
+}
+
 @keyframes imageSkeletonShimmer {
   0% {
     background-position: 200% 0;
