@@ -26,6 +26,9 @@ jobs:
           cache: "yarn"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Upgrade npm (OIDC required)
+        run: npm i -g npm@11.5.1
+
       - name: Ensure npmrc without token
         run: |
           printf "%s\n" "@telegram-tools:registry=https://registry.npmjs.org/" > "$NPM_CONFIG_USERCONFIG"
