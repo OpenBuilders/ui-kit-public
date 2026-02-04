@@ -12,6 +12,8 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      NODE_AUTH_TOKEN: ""
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,6 +27,9 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Show npm version
+        run: npm -v
 
       - name: Check version change
         id: version_check
@@ -60,8 +65,8 @@ jobs:
 
       - name: Publish dev tag
         if: github.ref == 'refs/heads/dev' && steps.version_check.outputs.version_changed == 'true'
-        run: npm publish --tag dev --provenance
+        run: npm publish --tag dev --provenance --access public
 
       - name: Publish latest
         if: github.ref == 'refs/heads/main' && steps.version_check.outputs.version_changed == 'true'
-        run: npm publish --provenance
+        run: npm publish --provenance --access public
