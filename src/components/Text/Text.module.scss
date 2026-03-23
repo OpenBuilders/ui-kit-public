@@ -1,130 +1,132 @@
-.text {
-  font-family: var(--font-display, var(--font-base));
-  color: var(--color-foreground-primary);
-  display: block;
-}
+@layer components {
+  .text {
+    font-family: var(--font-display, var(--font-base));
+    color: var(--color-foreground-primary);
+    display: block;
+  }
 
-.uppercase {
-  text-transform: uppercase;
-}
+  .uppercase {
+    text-transform: uppercase;
+  }
 
-.color-primary {
-  color: var(--color-foreground-primary);
-}
+  .color-primary {
+    color: var(--color-foreground-primary);
+  }
 
-.color-secondary {
-  color: var(--color-foreground-secondary);
-}
+  .color-secondary {
+    color: var(--color-foreground-secondary);
+  }
 
-.color-tertiary {
-  color: var(--color-foreground-tertiary);
-}
+  .color-tertiary {
+    color: var(--color-foreground-tertiary);
+  }
 
-.color-accent {
-  color: var(--color-accent-primary);
-}
+  .color-accent {
+    color: var(--color-accent-primary);
+  }
 
-.color-danger {
-  color: var(--color-state-destructive);
-}
+  .color-danger {
+    color: var(--color-state-destructive);
+  }
 
-.color-white {
-  color: var(--color-static-white);
-}
+  .color-white {
+    color: var(--color-static-white);
+  }
 
-.type-hero {
-  font-size: 88px;
-  line-height: 96px;
-}
+  .type-hero {
+    font-size: 88px;
+    line-height: 96px;
+  }
 
-.type-largeTitle {
-  font-size: 34px;
-  line-height: 41px;
-}
+  .type-largeTitle {
+    font-size: 34px;
+    line-height: 41px;
+  }
 
-.type-title1 {
-  font-size: 28px;
-  line-height: 34px;
-}
+  .type-title1 {
+    font-size: 28px;
+    line-height: 34px;
+  }
 
-.type-title2 {
-  font-size: 24px;
-  line-height: 30px;
-}
+  .type-title2 {
+    font-size: 24px;
+    line-height: 30px;
+  }
 
-.type-title3 {
-  font-size: 22px;
-  line-height: 28px;
-}
+  .type-title3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
 
-.type-title4 {
-  font-size: 20px;
-  line-height: 24px;
-}
+  .type-title4 {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
-.type-body {
-  font-size: 17px;
-  line-height: 22px;
-}
+  .type-body {
+    font-size: 17px;
+    line-height: 22px;
+  }
 
-.type-callout {
-  font-size: 16px;
-  line-height: 22px;
-}
+  .type-callout {
+    font-size: 16px;
+    line-height: 22px;
+  }
 
-.type-subheadline1 {
-  font-size: 15px;
-  line-height: 20px;
-}
+  .type-subheadline1 {
+    font-size: 15px;
+    line-height: 20px;
+  }
 
-.type-subheadline2 {
-  font-size: 14px;
-  line-height: 18px;
-}
+  .type-subheadline2 {
+    font-size: 14px;
+    line-height: 18px;
+  }
 
-.type-footnote {
-  font-size: 13px;
-  line-height: 18px;
-}
+  .type-footnote {
+    font-size: 13px;
+    line-height: 18px;
+  }
 
-.type-caption1 {
-  font-size: 12px;
-  line-height: 16px;
-}
+  .type-caption1 {
+    font-size: 12px;
+    line-height: 16px;
+  }
 
-.type-caption2 {
-  font-size: 11px;
-  line-height: 13px;
-}
+  .type-caption2 {
+    font-size: 11px;
+    line-height: 13px;
+  }
 
-.weight-light {
-  font-weight: 300;
-}
+  .weight-light {
+    font-weight: 300;
+  }
 
-.weight-regular {
-  font-weight: 400;
-}
+  .weight-regular {
+    font-weight: 400;
+  }
 
-.weight-medium {
-  font-weight: 500;
-}
+  .weight-medium {
+    font-weight: 500;
+  }
 
-.weight-bold {
-  font-weight: 700;
-}
+  .weight-bold {
+    font-weight: 700;
+  }
 
-.align-left {
-  text-align: left;
-}
+  .align-left {
+    text-align: left;
+  }
 
-.align-center {
-  text-align: center;
-}
+  .align-center {
+    text-align: center;
+  }
 
-.align-right {
-  text-align: right;
-}
+  .align-right {
+    text-align: right;
+  }
 
-.align-stretch {
-  text-align: stretch;
+  .align-stretch {
+    text-align: stretch;
+  }
 }

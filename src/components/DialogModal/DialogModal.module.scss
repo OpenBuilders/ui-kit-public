@@ -1,3 +1,4 @@
+@layer components {
 .dialogModal {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -79,4 +80,6 @@
   &:last-child {
     border-left: 1px solid var(--color-border-separator);
   }
+}
+
 }

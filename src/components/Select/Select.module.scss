@@ -1,3 +1,4 @@
+@layer components {
 .select {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -10,4 +11,6 @@
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
 }

@@ -1,3 +1,4 @@
+@layer components {
 .button {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -37,4 +38,6 @@
     transparent
   );
   color: var(--color-static-white);
+}
+
 }

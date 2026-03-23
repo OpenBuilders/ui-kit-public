@@ -1,7 +1,7 @@
 {
   "name": "@telegram-tools/ui-kit",
   "private": false,
-  "version": "0.2.5-dev.7",
+  "version": "0.2.5-dev.8",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",

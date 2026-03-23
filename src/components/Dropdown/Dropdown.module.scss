@@ -1,3 +1,4 @@
+@layer components {
 .dropdown {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -58,4 +59,6 @@
 
 .checkIconActive {
   opacity: 1;
+}
+
 }

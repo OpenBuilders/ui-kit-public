@@ -1,3 +1,4 @@
+@layer components {
 .group,
 .header,
 .footer {
@@ -43,4 +44,6 @@
 .footer {
   user-select: none;
   margin: 6px 16px 0 16px;
+}
+
 }

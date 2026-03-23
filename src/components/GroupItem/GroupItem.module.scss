@@ -1,3 +1,4 @@
+@layer components {
 .container {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -126,4 +127,6 @@
 
 .clickable {
   cursor: pointer;
+}
+
 }

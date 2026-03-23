@@ -1,3 +1,4 @@
+@layer components {
 .togglerContainer {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -48,4 +49,6 @@
 
 .togglerThumbEnabled {
   transform: translateX(calc(100% - 10px));
+}
+
 }

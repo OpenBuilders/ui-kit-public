@@ -1,3 +1,4 @@
+@layer components {
 .spinner {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
@@ -35,4 +36,6 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
 }
