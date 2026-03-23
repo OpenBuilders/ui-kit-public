@@ -68,19 +68,21 @@ export const Default: Story = {
       <div style={{ padding: "24px" }}>
         <div style={{ display: "flex", gap: "12px" }}>
           <Button
-            text="Open basic"
             onClick={() => {
               setActiveSheet("BASIC");
               setIsOpen(true);
             }}
-          />
+          >
+            Open basic
+          </Button>
           <Button
-            text="Open second"
             onClick={() => {
               setActiveSheet("SECOND");
               setIsOpen(true);
             }}
-          />
+          >
+            Open second
+          </Button>
         </div>
         <Sheet
           {...args}

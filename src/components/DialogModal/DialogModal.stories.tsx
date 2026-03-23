@@ -59,7 +59,7 @@ export const Confirm: Story = {
 
     return (
       <div style={{ padding: "24px" }}>
-        <Button text="Open dialog" onClick={() => setIsActive(true)} />
+        <Button onClick={() => setIsActive(true)}>Open dialog</Button>
         <DialogModal
           {...args}
           active={isActive}
@@ -95,7 +95,7 @@ export const Delete: Story = {
 
     return (
       <div style={{ padding: "24px" }}>
-        <Button text="Open dialog" onClick={() => setIsActive(true)} />
+        <Button onClick={() => setIsActive(true)}>Open dialog</Button>
         <DialogModal
           {...args}
           active={isActive}

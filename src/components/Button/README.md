@@ -1,22 +1,21 @@
 # Button
 
-Primary/secondary button with optional icon and loading state.
+Primary/secondary button with custom children content and loading state.
 
 ## Usage
 
 ```tsx
 import { Button } from "@components";
 
-<Button text="Save" onClick={handleSave} />
+<Button onClick={handleSave}>Save</Button>
 ```
 
 ## Props
 
 ```ts
 interface ButtonProps {
-  text?: string;
+  children?: React.ReactNode;
   disabled?: boolean;
-  icon?: React.ReactNode;
   onClick?(): void;
   type?: "primary" | "secondary";
   className?: string;
