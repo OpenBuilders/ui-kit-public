@@ -20,7 +20,8 @@ export type IconColor =
 
 export interface IconProps {
   name?: IconName;
-  size?: string | "full";
+  width?: string | "full";
+  height?: string | "full";
   color?: IconColor;
   colorType?: ColorType;
   className?: string;

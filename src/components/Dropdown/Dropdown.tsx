@@ -97,7 +97,8 @@ export const Dropdown = ({
                   styles.checkIcon,
                   isSelected && styles.checkIconActive
                 )}
-                size="16px"
+                width="16px"
+                height="16px"
               />
             </li>
           );

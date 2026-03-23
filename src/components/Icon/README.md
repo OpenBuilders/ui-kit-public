@@ -7,7 +7,7 @@ Renders an SVG icon by name, or a custom icon element.
 ```tsx
 import { Icon } from "@components";
 
-<Icon name="cross" size="16px" color="primary" />
+<Icon name="cross" width="16px" height="16px" color="primary" />
 ```
 
 ## Props
@@ -29,7 +29,8 @@ type ColorType = "fill" | "stroke" | "both";
 
 interface IconProps {
   name?: IconName;
-  size?: string | "full";
+  width?: string | "full";
+  height?: string | "full";
   color?: IconColor;
   colorType?: ColorType;
   className?: string;

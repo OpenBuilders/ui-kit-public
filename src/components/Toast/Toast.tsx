@@ -175,7 +175,11 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
           >
             <div className={styles.toastContent}>
               {currentToast.type && (
-                <Icon size="18px" name={currentToast.type as IconName} />
+                <Icon
+                  width="18px"
+                  height="18px"
+                  name={currentToast.type as IconName}
+                />
               )}
               <Text type="caption1" color="white">
                 {currentToast.message}

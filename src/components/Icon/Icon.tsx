@@ -6,7 +6,8 @@ import { useIcons } from "./IconContextUtils";
 
 export const Icon = ({
   name,
-  size = "full",
+  width = "full",
+  height = "auto",
   color = "default",
   colorType = "fill",
   className,
@@ -21,22 +22,23 @@ export const Icon = ({
     return null;
   }
 
-  const sizeStyle = size === "full" ? `100%` : `${size}`;
+  const widthStyle = width === "full" ? `100%` : `${width}`;
+  const heightStyle = height === "full" ? `100%` : `${height}`;
   const borderRadiusStyle =
     borderRadius === "full" ? `50%` : `${borderRadius}px`;
 
   return (
     <div
       style={{
-        width: sizeStyle,
-        height: sizeStyle,
-        minWidth: sizeStyle,
+        width: widthStyle,
+        height: heightStyle,
+        minWidth: widthStyle,
         borderRadius: borderRadiusStyle,
       }}
       className={cn(
         styles.icon,
         color !== "default" && styles[`color-${color}-${colorType}`],
-        className
+        className,
       )}
     >
       {IconComponent && <IconComponent />}

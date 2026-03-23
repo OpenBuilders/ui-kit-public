@@ -11,7 +11,11 @@ const meta: Meta<typeof Icon> = {
   component: Icon,
   tags: ["autodocs"],
   argTypes: {
-    size: {
+    width: {
+      control: { type: "text" },
+      defaultValue: "24px",
+    },
+    height: {
       control: { type: "text" },
       defaultValue: "24px",
     },
@@ -37,7 +41,8 @@ const meta: Meta<typeof Icon> = {
     },
   },
   args: {
-    size: "24px",
+    width: "24px",
+    height: "24px",
     color: "primary",
   },
 };
@@ -134,7 +139,8 @@ export const CustomIcon: Story = {
   },
   args: {
     customIcon: CustomIconComponent,
-    size: "24px",
+    width: "24px",
+    height: "auto",
   },
   render: (args) => {
     return <Icon {...args} />;
