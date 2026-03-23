@@ -35,3 +35,17 @@ export function Example() {
 ```text
 https://ui-kit-public-fe-prod-dwbtc.ondigitalocean.app/
 ```
+
+## Release flow
+
+```bash
+# dev publish:
+# 0.2.4 -> 0.2.5-dev.0
+# 0.2.5-dev.0 -> 0.2.5-dev.1
+yarn release:dev
+
+# prod publish:
+# 0.2.5-dev.3 -> 0.2.5
+# 0.2.5 -> 0.2.6
+yarn release:prod
+```
