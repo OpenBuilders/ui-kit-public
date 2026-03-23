@@ -43,15 +43,6 @@ export const Default: Story = {
       }, 2000);
     }, []);
 
-    const ImageComponent = () => (
-      <Image
-        src="https://picsum.photos/400/400"
-        borderRadius="6px"
-        width="30px"
-        aspectRatio="1"
-      />
-    );
-
     return (
       <div style={{ width: "100%", padding: "16px" }}>
         <Group
@@ -62,7 +53,14 @@ export const Default: Story = {
           }}
         >
           <GroupItem
-            before={<ImageComponent />}
+            before={
+              <Image
+                src="https://picsum.photos/400/400"
+                borderRadius="6px"
+                width="30px"
+                aspectRatio="1"
+              />
+            }
             chevron
             text="Some title"
             description="Some description"
@@ -71,12 +69,26 @@ export const Default: Story = {
             }}
           />
           <GroupItem
-            before={<ImageComponent />}
+            before={
+              <Image
+                src="https://picsum.photos/400/400"
+                borderRadius="6px"
+                width="30px"
+                aspectRatio="1"
+              />
+            }
             after={<Input value={searchValue} onChange={handleChange} />}
             text="Some title"
           />
           <GroupItem
-            before={<ImageComponent />}
+            before={
+              <Image
+                src="https://picsum.photos/400/400"
+                borderRadius="6px"
+                width="30px"
+                aspectRatio="1"
+              />
+            }
             after={
               <Toggle
                 isEnabled={isEnabled}
@@ -87,7 +99,14 @@ export const Default: Story = {
             description="Some description"
           />
           <GroupItem
-            before={<ImageComponent />}
+            before={
+              <Image
+                src="https://picsum.photos/400/400"
+                borderRadius="6px"
+                width="30px"
+                aspectRatio="1"
+              />
+            }
             chevron
             text="Some title"
             onClick={() => {

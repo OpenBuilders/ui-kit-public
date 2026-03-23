@@ -12,16 +12,14 @@ interface ToggleProps {
   borderRadius?: number;
 }
 
-const webApp = window?.Telegram?.WebApp;
-
 export const Toggle = ({
   isEnabled = false,
   onChange,
   disabled = false,
   className,
-  height = 30,
-  width = 50,
-  borderRadius = 34,
+  height = 28,
+  width = 64,
+  borderRadius = 16,
 }: ToggleProps) => {
   const handleToggle = () => {
     if (disabled) return null;
@@ -41,7 +39,7 @@ export const Toggle = ({
         className={cn(
           styles.toggler,
           isEnabled && styles.togglerEnabled,
-          disabled && styles.togglerDisabled
+          disabled && styles.togglerDisabled,
         )}
         onClick={handleToggle}
         disabled={disabled}
@@ -50,7 +48,7 @@ export const Toggle = ({
         <span
           className={cn(
             styles.togglerThumb,
-            isEnabled && styles.togglerThumbEnabled
+            isEnabled && styles.togglerThumbEnabled,
           )}
           style={{
             borderRadius,

@@ -40,6 +40,7 @@
     "release:prod": "node scripts/bump-version.mjs prod && yarn build && npm publish"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.67.0",
     "classnames": "^2.5.1",
     "react-remove-scroll": "^2.5.0"
   },

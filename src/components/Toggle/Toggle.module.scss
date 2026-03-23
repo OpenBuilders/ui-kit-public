@@ -37,7 +37,7 @@
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 50%;
+  width: 55%;
   height: calc(100% - 4px);
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -45,5 +45,5 @@
 }
 
 .togglerThumbEnabled {
-  transform: translateX(calc(100% - 4px));
+  transform: translateX(calc(100% - 10px));
 }
