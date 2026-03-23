@@ -4,6 +4,7 @@ import cn from "classnames";
 
 interface TextProps {
   children: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
   type?: TextType;
   weight?: TextWeight;
   align?: TextAlign;
@@ -15,6 +16,7 @@ interface TextProps {
 
 export const Text: React.FC<TextProps> = ({
   children,
+  as = "p",
   type = "body",
   weight = "regular",
   align = "left",
@@ -23,8 +25,10 @@ export const Text: React.FC<TextProps> = ({
   className,
   onClick,
 }) => {
+  const Component = as;
+
   return (
-    <div
+    <Component
       className={cn(
         styles.text,
         styles[`type-${type}`],
@@ -37,6 +41,6 @@ export const Text: React.FC<TextProps> = ({
       onClick={onClick}
     >
       {children}
-    </div>
+    </Component>
   );
 };
