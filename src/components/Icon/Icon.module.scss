@@ -1,5 +1,4 @@
-@layer components {
-.icon {
+:where(.icon) {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
   display: flex;
@@ -13,7 +12,7 @@
   }
 }
 
-[class*="color-"] {
+:where([class*="color-"]) {
   &[class*="-fill"] {
     path {
       fill: var(--icon-color, currentColor);
@@ -34,51 +33,51 @@
   }
 }
 
-.color-primary-fill,
-.color-primary-stroke,
-.color-primary-both {
+:where(.color-primary-fill),
+:where(.color-primary-stroke),
+:where(.color-primary-both) {
   --icon-color: var(--color-foreground-primary);
   color: var(--color-foreground-primary);
 }
 
-.color-secondary-fill,
-.color-secondary-stroke,
-.color-secondary-both {
+:where(.color-secondary-fill),
+:where(.color-secondary-stroke),
+:where(.color-secondary-both) {
   --icon-color: var(--color-foreground-secondary);
   color: var(--color-foreground-secondary);
 }
 
-.color-tertiary-fill,
-.color-tertiary-stroke,
-.color-tertiary-both {
+:where(.color-tertiary-fill),
+:where(.color-tertiary-stroke),
+:where(.color-tertiary-both) {
   --icon-color: var(--color-foreground-tertiary);
   color: var(--color-foreground-tertiary);
 }
 
-.color-accent-fill,
-.color-accent-stroke,
-.color-accent-both {
+:where(.color-accent-fill),
+:where(.color-accent-stroke),
+:where(.color-accent-both) {
   --icon-color: var(--color-accent-primary);
   color: var(--color-accent-primary);
 }
 
-.color-destructive-fill,
-.color-destructive-stroke,
-.color-destructive-both {
+:where(.color-destructive-fill),
+:where(.color-destructive-stroke),
+:where(.color-destructive-both) {
   --icon-color: var(--color-state-destructive);
   color: var(--color-state-destructive);
 }
 
-.color-warning-fill,
-.color-warning-stroke,
-.color-warning-both {
+:where(.color-warning-fill),
+:where(.color-warning-stroke),
+:where(.color-warning-both) {
   --icon-color: var(--color-state-warning);
   color: var(--color-state-warning);
 }
 
-.color-success-fill,
-.color-success-stroke,
-.color-success-both {
+:where(.color-success-fill),
+:where(.color-success-stroke),
+:where(.color-success-both) {
   --icon-color: var(--color-state-success);
   color: var(--color-state-success);
 }
@@ -138,5 +137,3 @@
 //     fill: var(--color-state-success);
 //   }
 // }
-
-}

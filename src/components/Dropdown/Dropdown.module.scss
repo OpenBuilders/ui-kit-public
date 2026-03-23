@@ -1,5 +1,4 @@
-@layer components {
-.dropdown {
+:where(.dropdown) {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
   position: absolute;
@@ -21,7 +20,7 @@
   pointer-events: none;
 }
 
-.dropdownActive {
+:where(.dropdownActive) {
   opacity: 1;
   visibility: visible;
   z-index: 20;
@@ -29,13 +28,13 @@
   pointer-events: auto;
 }
 
-.list {
+:where(.list) {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.item {
+:where(.item) {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -49,16 +48,15 @@
   }
 }
 
-.itemText {
+:where(.itemText) {
   flex: 1;
 }
 
-.checkIcon {
+:where(.checkIcon) {
   opacity: 0;
 }
 
-.checkIconActive {
+:where(.checkIconActive) {
   opacity: 1;
 }
 
-}

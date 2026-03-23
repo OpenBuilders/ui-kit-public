@@ -1,5 +1,4 @@
-@layer components {
-.input {
+:where(.input) {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
   background: transparent;
@@ -105,4 +104,3 @@
   }
 }
 
-}

@@ -1,5 +1,4 @@
-@layer components {
-.button {
+:where(.button) {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
   font-size: 17px;
@@ -20,24 +19,22 @@
   opacity: 1;
   transition: 0.2s;
 
-  &:disabled {
+  &:where(:disabled) {
     opacity: 0.5;
     cursor: not-allowed;
   }
 }
 
-.type-primary {
+:where(.type-primary) {
   background-color: var(--color-accent-primary);
   color: var(--color-static-white);
 }
 
-.type-secondary {
+:where(.type-secondary) {
   background-color: color-mix(
     in srgb,
     var(--color-accent-primary) 10%,
     transparent
   );
   color: var(--color-static-white);
-}
-
 }

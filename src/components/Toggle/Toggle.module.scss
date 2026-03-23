@@ -1,5 +1,4 @@
-@layer components {
-.togglerContainer {
+:where(.togglerContainer) {
   font-family: var(--font-display, var(--font-base));
   color: var(--color-foreground-primary);
   display: inline-flex;
@@ -7,7 +6,7 @@
   justify-content: center;
 }
 
-.toggler {
+:where(.toggler) {
   position: relative;
   width: 100%;
   height: 100%;
@@ -28,15 +27,15 @@
   }
 }
 
-.togglerEnabled {
+:where(.togglerEnabled) {
   background-color: var(--color-state-success);
 }
 
-.togglerDisabled {
+:where(.togglerDisabled) {
   opacity: 0.5;
 }
 
-.togglerThumb {
+:where(.togglerThumb) {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -47,8 +46,7 @@
   transition: transform 0.2s ease;
 }
 
-.togglerThumbEnabled {
+:where(.togglerThumbEnabled) {
   transform: translateX(calc(100% - 10px));
 }
 
-}

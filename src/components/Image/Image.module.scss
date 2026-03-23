@@ -1,5 +1,4 @@
-@layer components {
-  .wrapper {
+  :where(.wrapper) {
     font-family: var(--font-display, var(--font-base));
     color: var(--color-foreground-primary);
     position: relative;
@@ -9,7 +8,7 @@
     background: var(--color-fill-tertiary);
   }
 
-  .skeleton {
+  :where(.skeleton) {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -22,12 +21,12 @@
     animation: imageSkeletonShimmer 1.5s ease-in-out infinite;
   }
 
-  .skeletonError {
+  :where(.skeletonError) {
     animation: none;
     background: var(--color-fill-tertiary);
   }
 
-  .img {
+  :where(.img) {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -36,18 +35,18 @@
     transition: opacity 0.2s ease-out;
   }
 
-  .imgLoaded {
+  :where(.imgLoaded) {
     opacity: 1;
   }
 
-  .fallback {
+  :where(.fallback) {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .fallbackText {
+  :where(.fallbackText) {
     position: absolute;
     display: inline-block;
     left: 50%;
@@ -68,4 +67,3 @@
       background-position: -200% 0;
     }
   }
-}
