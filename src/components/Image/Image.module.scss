@@ -1,4 +1,6 @@
 .wrapper {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: relative;
   display: block;
   overflow: hidden;

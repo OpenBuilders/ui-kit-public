@@ -1,4 +1,6 @@
 .togglerContainer {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;

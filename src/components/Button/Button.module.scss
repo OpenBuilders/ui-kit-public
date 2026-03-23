@@ -1,9 +1,10 @@
 .button {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   font-size: 17px;
   font-weight: 590;
   border: 0;
   outline: none;
-  color: var(--color-static-white);
   background-color: var(--color-accent-primary);
   display: flex;
   align-items: center;

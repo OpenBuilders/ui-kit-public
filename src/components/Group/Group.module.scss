@@ -1,3 +1,10 @@
+.group,
+.header,
+.footer {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
+}
+
 .group {
   background-color: var(--color-background-section);
   border-radius: var(--border-radius-3xl);

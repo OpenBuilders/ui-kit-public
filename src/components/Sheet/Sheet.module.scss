@@ -22,6 +22,8 @@
 }
 
 .sheet {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: fixed;
   top: var(--sheet-top);
   bottom: 0;

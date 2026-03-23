@@ -1,4 +1,6 @@
 .icon {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   display: flex;
   justify-content: center;
   align-items: center;

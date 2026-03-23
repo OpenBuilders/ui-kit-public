@@ -1,4 +1,6 @@
 .dropdown {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: absolute;
   top: calc(100% + 8px);
   right: 0;

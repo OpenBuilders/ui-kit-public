@@ -1,4 +1,6 @@
 .toastContainer {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: fixed;
   left: 50%;
   bottom: 24px;
