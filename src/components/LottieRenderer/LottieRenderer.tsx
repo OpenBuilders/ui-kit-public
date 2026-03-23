@@ -6,11 +6,9 @@ import cn from "classnames";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./LottieRenderer.module.scss";
-import { loadLocalLottie, type LottieName } from "./lotties";
 import { SkeletonElement } from "../SkeletonElement";
 
 export interface LottieRendererProps {
-  name?: LottieName;
   src?: string;
   data?: DotLottieData;
   autoplay?: boolean;
@@ -23,7 +21,6 @@ export interface LottieRendererProps {
 }
 
 export const LottieRenderer = ({
-  name,
   src,
   data,
   autoplay = true,
@@ -36,8 +33,6 @@ export const LottieRenderer = ({
 }: LottieRendererProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const playerRef = useRef<DotLottie | null>(null);
-  const [localData, setLocalData] = useState<DotLottieData | null>(null);
-  const [isResolvingLocal, setIsResolvingLocal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadError, setIsLoadError] = useState(false);
 
@@ -50,49 +45,8 @@ export const LottieRenderer = ({
       return { src };
     }
 
-    if (localData) {
-      return { data: localData };
-    }
-
     return null;
-  }, [data, localData, src]);
-
-  useEffect(() => {
-    let isCancelled = false;
-
-    if (!name || data || src) {
-      setLocalData(null);
-      setIsResolvingLocal(false);
-      return;
-    }
-
-    setIsResolvingLocal(true);
-    setIsLoadError(false);
-    setIsLoading(true);
-
-    loadLocalLottie(name)
-      .then((animationData) => {
-        if (isCancelled) {
-          return;
-        }
-
-        setLocalData(animationData);
-        setIsResolvingLocal(false);
-      })
-      .catch(() => {
-        if (isCancelled) {
-          return;
-        }
-
-        setIsLoadError(true);
-        setIsLoading(false);
-        setIsResolvingLocal(false);
-      });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [data, name, src]);
+  }, [data, src]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -158,8 +112,8 @@ export const LottieRenderer = ({
     player.setLoop(loop);
   }, [loop]);
 
-  const hasSource = Boolean(data || src || name);
-  const shouldShowSkeleton = isResolvingLocal || isLoading || isLoadError;
+  const hasSource = Boolean(data || src);
+  const shouldShowSkeleton = isLoading || isLoadError;
 
   if (!hasSource) {
     return null;
