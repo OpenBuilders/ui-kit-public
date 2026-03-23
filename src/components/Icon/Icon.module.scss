@@ -12,6 +12,13 @@
   }
 }
 
+:where(.customIconImage) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 :where([class*="color-"]) {
   &[class*="-fill"] {
     path {

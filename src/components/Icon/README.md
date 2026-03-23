@@ -8,6 +8,10 @@ Renders an SVG icon by name, or a custom icon element.
 import { Icon } from "@components";
 
 <Icon name="cross" width="16px" height="16px" color="primary" />
+
+import customLogo from "./logo.svg";
+
+<Icon customIcon={customLogo} width="16px" height="16px" />
 ```
 
 ## Props
@@ -35,7 +39,7 @@ interface IconProps {
   colorType?: ColorType;
   className?: string;
   borderRadius?: string | "full";
-  customIcon?: React.ReactElement;
+  customIcon?: React.ReactElement | string;
 }
 ```
 

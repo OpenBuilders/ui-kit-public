@@ -28,7 +28,7 @@ type TextType =
   | "caption1"
   | "caption2";
 
-type TextWeight = "light" | "regular" | "medium" | "bold";
+type TextWeight = "light" | "regular" | "medium" | "semibold" | "bold";
 
 type TextAlign = "left" | "center" | "right" | "stretch";
 

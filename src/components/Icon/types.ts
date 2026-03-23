@@ -26,5 +26,5 @@ export interface IconProps {
   colorType?: ColorType;
   className?: string;
   borderRadius?: string | "full";
-  customIcon?: React.ReactElement;
+  customIcon?: React.ReactElement | string;
 }

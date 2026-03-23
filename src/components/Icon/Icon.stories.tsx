@@ -125,6 +125,9 @@ const CustomIconComponent = (
   </svg>
 );
 
+const customSvgUrl =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%2300a86b'/%3E%3Cpath d='M8 12.5l2.2 2.2L16 9' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
+
 export const CustomIcon: Story = {
   argTypes: {
     colorType: {
@@ -141,6 +144,28 @@ export const CustomIcon: Story = {
     customIcon: CustomIconComponent,
     width: "24px",
     height: "auto",
+  },
+  render: (args) => {
+    return <Icon {...args} />;
+  },
+};
+
+export const CustomIconSvgUrl: Story = {
+  argTypes: {
+    colorType: {
+      control: false,
+      table: { disable: true },
+    },
+    customIcon: {
+      control: {
+        type: "text",
+      },
+    },
+  },
+  args: {
+    customIcon: customSvgUrl,
+    width: "24px",
+    height: "24px",
   },
   render: (args) => {
     return <Icon {...args} />;

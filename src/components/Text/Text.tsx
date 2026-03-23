@@ -36,7 +36,7 @@ export const Text: React.FC<TextProps> = ({
         styles[`align-${align}`],
         styles[`color-${color}`],
         uppercase && styles.uppercase,
-        className
+        className,
       )}
       onClick={onClick}
     >

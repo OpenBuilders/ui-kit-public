@@ -16,6 +16,7 @@ export const Icon = ({
 }: IconProps) => {
   const icons = useIcons();
   const IconComponent = name ? icons[name] : null;
+  const customIconUrl = typeof customIcon === "string" ? customIcon : null;
 
   if (!IconComponent && !customIcon) {
     console.warn(`Icon "${name}" not found`);
@@ -42,7 +43,16 @@ export const Icon = ({
       )}
     >
       {IconComponent && <IconComponent />}
-      {customIcon && customIcon}
+      {customIconUrl ? (
+        <img
+          src={customIconUrl}
+          alt=""
+          aria-hidden="true"
+          className={styles.customIconImage}
+        />
+      ) : (
+        customIcon
+      )}
     </div>
   );
 };
