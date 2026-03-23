@@ -13,3 +13,4 @@ export * from "./Button";
 export * from "./DialogModal";
 export * from "./Spinner";
 export * from "./Sheet";
+export * from "./LottieRenderer";
