@@ -30,6 +30,11 @@
   color: var(--color-static-white);
 }
 
+:where(.type-outline) {
+  background-color: var(--color-button-secondaryBackground);
+  color: var(--color-link);
+}
+
 :where(.type-secondary) {
   background-color: color-mix(
     in srgb,

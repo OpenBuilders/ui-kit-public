@@ -8,7 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   children?: ReactNode;
   onClick?(): void;
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "outline";
   className?: string;
   loading?: boolean;
 }

@@ -16,7 +16,7 @@ const meta: Meta<typeof Button> = {
     },
     type: {
       control: { type: "select" },
-      options: ["primary", "secondary"],
+      options: ["primary", "secondary", "outline"],
     },
     onClick: {
       action: "clicked",
