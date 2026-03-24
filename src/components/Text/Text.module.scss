@@ -10,6 +10,12 @@
     text-transform: uppercase;
   }
 
+  :where(.truncate) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   :where(.color-primary) {
     color: var(--color-foreground-primary);
   }

@@ -10,6 +10,7 @@ interface TextProps {
   align?: TextAlign;
   color?: TextColor;
   uppercase?: boolean;
+  truncate?: boolean;
   className?: string;
   onClick?: () => void;
 }
@@ -22,6 +23,7 @@ export const Text: React.FC<TextProps> = ({
   align = "left",
   color = "primary",
   uppercase = false,
+  truncate = false,
   className,
   onClick,
 }) => {
@@ -36,6 +38,7 @@ export const Text: React.FC<TextProps> = ({
         styles[`align-${align}`],
         styles[`color-${color}`],
         uppercase && styles.uppercase,
+        truncate && styles.truncate,
         className,
       )}
       onClick={onClick}
