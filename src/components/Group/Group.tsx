@@ -26,29 +26,70 @@ export const Group = ({
   skeleton,
 }: GroupProps) => {
   const groupRef = useRef<HTMLDivElement>(null);
+  const ITEM_LEFT_GAP = 16;
+  const GROUP_ITEM_GAP = 10;
 
   useLayoutEffect(() => {
-    if (groupRef.current) {
-      const items = groupRef.current.querySelectorAll(
+    if (!groupRef.current) return;
+
+    const groupElement = groupRef.current;
+
+    const updateGroupLayout = () => {
+      const borderItems = groupElement.querySelectorAll<HTMLElement>(
         "[data-group-item-border-bottom]"
       );
+      const beforeContentItems = groupElement.querySelectorAll<HTMLElement>(
+        "[data-group-item-before-content]"
+      );
 
-      // Сначала сбрасываем opacity для всех элементов
-      items.forEach((item) => {
-        if (item instanceof HTMLElement) {
-          item.style.opacity = "1";
-        }
+      let maxBeforeWidth = 0;
+      beforeContentItems.forEach((beforeContent) => {
+        maxBeforeWidth = Math.max(
+          maxBeforeWidth,
+          beforeContent.getBoundingClientRect().width
+        );
       });
 
-      // Затем скрываем последний элемент
-      if (items.length > 0) {
-        const lastItem = items[items.length - 1];
-        if (lastItem instanceof HTMLElement) {
-          lastItem.style.opacity = "0";
-        }
+      const contentLeftOffset =
+        maxBeforeWidth > 0
+          ? ITEM_LEFT_GAP + maxBeforeWidth + GROUP_ITEM_GAP
+          : ITEM_LEFT_GAP;
+
+      groupElement.style.setProperty(
+        "--group-item-before-size",
+        `${maxBeforeWidth}px`
+      );
+      groupElement.style.setProperty(
+        "--group-item-content-left-offset",
+        `${contentLeftOffset}px`
+      );
+
+      borderItems.forEach((item) => {
+        item.style.opacity = "1";
+      });
+
+      const lastItem = borderItems[borderItems.length - 1];
+      if (lastItem) {
+        lastItem.style.opacity = "0";
       }
-    }
-  }, [children]); // Добавляем children в зависимости
+    };
+
+    updateGroupLayout();
+
+    if (typeof ResizeObserver === "undefined") return;
+
+    const resizeObserver = new ResizeObserver(updateGroupLayout);
+    resizeObserver.observe(groupElement);
+
+    const beforeContentItems = groupElement.querySelectorAll<HTMLElement>(
+      "[data-group-item-before-content]"
+    );
+    beforeContentItems.forEach((beforeContent) => {
+      resizeObserver.observe(beforeContent);
+    });
+
+    return () => resizeObserver.disconnect();
+  }, [children]);
 
   if (skeleton?.show) {
     return (

@@ -44,7 +44,7 @@ export const Default: Story = {
     }, []);
 
     return (
-      <div style={{ width: "100%", padding: "16px" }}>
+      <div style={{ padding: "16px" }}>
         <Group
           {...args}
           skeleton={{
@@ -57,7 +57,7 @@ export const Default: Story = {
               <Image
                 src="https://picsum.photos/400/400"
                 borderRadius="6px"
-                width="30px"
+                width="20px"
                 aspectRatio="1"
               />
             }
