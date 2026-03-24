@@ -22,7 +22,7 @@ const ITEM_LEFT_GAP = 16;
 
 const renderText = (text: string | React.ReactNode) => {
   if (typeof text === "string") {
-    return <Text type="body">{text}</Text>;
+    return <Text type="body" truncate>{text}</Text>;
   }
   return text;
 };
@@ -30,7 +30,7 @@ const renderText = (text: string | React.ReactNode) => {
 const renderDescription = (description: string | React.ReactNode) => {
   if (typeof description === "string") {
     return (
-      <Text type="caption1" color="secondary">
+      <Text type="caption1" color="secondary" truncate>
         {description}
       </Text>
     );
