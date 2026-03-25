@@ -7,6 +7,7 @@ export type IconName = ActionIconName;
 export type IconComponent = () => React.ReactElement;
 
 export type ColorType = "fill" | "stroke" | "both";
+export type CustomIconRenderAs = "image" | "svg";
 
 export type IconColor =
   | "default"
@@ -24,7 +25,9 @@ export interface IconProps {
   height?: string | "full";
   color?: IconColor;
   colorType?: ColorType;
+  renderAs?: CustomIconRenderAs;
   className?: string;
   borderRadius?: string | "full";
+  // `string` is rendered as image URL/path or inline SVG markup depending on `renderAs`.
   customIcon?: React.ReactElement | string;
 }

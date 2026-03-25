@@ -3,6 +3,7 @@ import { Icon } from "./Icon";
 import { icons } from "./icons";
 import { IconName } from "./types";
 import { Text } from "@components";
+import svgMock from "./crown.svg?raw";
 
 const colorTypeStrokeIcons = ["check", "chevron"];
 
@@ -35,6 +36,10 @@ const meta: Meta<typeof Icon> = {
         "warning",
         "success",
       ],
+    },
+    renderAs: {
+      control: { type: "select" },
+      options: ["image", "svg"],
     },
     borderRadius: {
       control: { type: "range", min: 0, max: 60, step: 1 },
@@ -125,9 +130,6 @@ const CustomIconComponent = (
   </svg>
 );
 
-const customSvgUrl =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%2300a86b'/%3E%3Cpath d='M8 12.5l2.2 2.2L16 9' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
-
 export const CustomIcon: Story = {
   argTypes: {
     colorType: {
@@ -150,9 +152,9 @@ export const CustomIcon: Story = {
   },
 };
 
-export const CustomIconSvgUrl: Story = {
+export const CustomIconInlineSvg: Story = {
   argTypes: {
-    colorType: {
+    renderAs: {
       control: false,
       table: { disable: true },
     },
@@ -163,7 +165,10 @@ export const CustomIconSvgUrl: Story = {
     },
   },
   args: {
-    customIcon: customSvgUrl,
+    customIcon: svgMock,
+    renderAs: "svg",
+    color: "accent",
+    colorType: "fill",
     width: "24px",
     height: "24px",
   },

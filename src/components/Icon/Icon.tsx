@@ -10,13 +10,19 @@ export const Icon = ({
   height = "auto",
   color = "default",
   colorType = "fill",
+  renderAs = "svg",
   className,
   borderRadius = "0",
   customIcon,
 }: IconProps) => {
   const icons = useIcons();
   const IconComponent = name ? icons[name] : null;
-  const customIconUrl = typeof customIcon === "string" ? customIcon : null;
+  const customIconString =
+    typeof customIcon === "string" ? customIcon.trim() : null;
+  const customInlineSvg =
+    renderAs === "svg" && customIconString ? customIconString : null;
+  const customIconUrl =
+    renderAs === "image" && customIconString ? customIconString : null;
 
   if (!IconComponent && !customIcon) {
     console.warn(`Icon "${name}" not found`);
@@ -43,7 +49,13 @@ export const Icon = ({
       )}
     >
       {IconComponent && <IconComponent />}
-      {customIconUrl ? (
+      {customInlineSvg ? (
+        <span
+          aria-hidden="true"
+          className={styles.customIconSvg}
+          dangerouslySetInnerHTML={{ __html: customInlineSvg }}
+        />
+      ) : customIconUrl ? (
         <img
           src={customIconUrl}
           alt=""

@@ -12,6 +12,10 @@ import { Icon } from "@components";
 import customLogo from "./logo.svg";
 
 <Icon customIcon={customLogo} width="16px" height="16px" />
+
+const customInlineSvg = `<svg viewBox="0 0 24 24"><path d="..." /></svg>`;
+
+<Icon customIcon={customInlineSvg} renderAs="svg" width="16px" height="16px" />
 ```
 
 ## Props
@@ -30,6 +34,7 @@ type IconColor =
   | "success";
 
 type ColorType = "fill" | "stroke" | "both";
+type CustomIconRenderAs = "image" | "svg";
 
 interface IconProps {
   name?: IconName;
@@ -37,6 +42,7 @@ interface IconProps {
   height?: string | "full";
   color?: IconColor;
   colorType?: ColorType;
+  renderAs?: CustomIconRenderAs;
   className?: string;
   borderRadius?: string | "full";
   customIcon?: React.ReactElement | string;
@@ -46,3 +52,6 @@ interface IconProps {
 ### Behavior
 - If `name` is not found and `customIcon` is not provided, the icon is not rendered.
 - You can supply a custom icon map via `IconContext.Provider`.
+- `renderAs` affects string `customIcon` only:
+  - `"image"` (default): renders string as `<img src="...">`
+  - `"svg"`: renders string as inline SVG markup
