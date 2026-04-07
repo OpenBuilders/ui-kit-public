@@ -1,128 +1,146 @@
-.text {
-  display: block;
-}
+@layer components {
+  :where(.text) {
+    font-family: var(--font-display, var(--font-base));
+    color: var(--color-foreground-primary);
+    display: block;
+    margin: 0;
+  }
 
-.uppercase {
-  text-transform: uppercase;
-}
+  :where(.uppercase) {
+    text-transform: uppercase;
+  }
 
-.color-primary {
-  color: var(--color-foreground-primary);
-}
+  :where(.truncate) {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.color-secondary {
-  color: var(--color-foreground-secondary);
-}
+  :where(.color-primary) {
+    color: var(--color-foreground-primary);
+  }
 
-.color-tertiary {
-  color: var(--color-foreground-tertiary);
-}
+  :where(.color-secondary) {
+    color: var(--color-foreground-secondary);
+  }
 
-.color-accent {
-  color: var(--color-accent-primary);
-}
+  :where(.color-tertiary) {
+    color: var(--color-foreground-tertiary);
+  }
 
-.color-danger {
-  color: var(--color-state-destructive);
-}
+  :where(.color-accent) {
+    color: var(--color-accent-primary);
+  }
 
-.color-white {
-  color: var(--color-static-white);
-}
+  :where(.color-danger) {
+    color: var(--color-state-destructive);
+  }
 
-.type-hero {
-  font-size: 88px;
-  line-height: 96px;
-}
+  :where(.color-white) {
+    color: var(--color-static-white);
+  }
 
-.type-largeTitle {
-  font-size: 34px;
-  line-height: 41px;
-}
+  :where(.type-hero) {
+    font-size: 88px;
+    line-height: 96px;
+  }
 
-.type-title1 {
-  font-size: 28px;
-  line-height: 34px;
-}
+  :where(.type-largeTitle) {
+    font-size: 34px;
+    line-height: 41px;
+  }
 
-.type-title2 {
-  font-size: 24px;
-  line-height: 30px;
-}
+  :where(.type-title1) {
+    font-size: 28px;
+    line-height: 34px;
+  }
 
-.type-title3 {
-  font-size: 22px;
-  line-height: 28px;
-}
+  :where(.type-title2) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 
-.type-title4 {
-  font-size: 20px;
-  line-height: 24px;
-}
+  :where(.type-title3) {
+    font-size: 22px;
+    line-height: 28px;
+  }
 
-.type-body {
-  font-size: 17px;
-  line-height: 22px;
-}
+  :where(.type-title4) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
-.type-callout {
-  font-size: 16px;
-  line-height: 22px;
-}
+  :where(.type-body) {
+    font-size: 17px;
+    line-height: 22px;
+  }
 
-.type-subheadline1 {
-  font-size: 15px;
-  line-height: 20px;
-}
+  :where(.type-callout) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 
-.type-subheadline2 {
-  font-size: 14px;
-  line-height: 18px;
-}
+  :where(.type-subheadline1) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 
-.type-footnote {
-  font-size: 13px;
-  line-height: 18px;
-}
+  :where(.type-subheadline2) {
+    font-size: 14px;
+    line-height: 18px;
+  }
 
-.type-caption1 {
-  font-size: 12px;
-  line-height: 16px;
-}
+  :where(.type-footnote) {
+    font-size: 13px;
+    line-height: 18px;
+  }
 
-.type-caption2 {
-  font-size: 11px;
-  line-height: 13px;
-}
+  :where(.type-caption1) {
+    font-size: 12px;
+    line-height: 16px;
+  }
 
-.weight-light {
-  font-weight: 300;
-}
+  :where(.type-caption2) {
+    font-size: 11px;
+    line-height: 13px;
+  }
 
-.weight-regular {
-  font-weight: 400;
-}
+  :where(.weight-light) {
+    font-weight: 300;
+  }
 
-.weight-medium {
-  font-weight: 500;
-}
+  :where(.weight-regular) {
+    font-weight: 400;
+  }
 
-.weight-bold {
-  font-weight: 700;
-}
+  :where(.weight-medium) {
+    font-weight: 500;
+  }
 
-.align-left {
-  text-align: left;
-}
+  :where(.weight-semibold) {
+    font-weight: 600;
+  }
 
-.align-center {
-  text-align: center;
-}
+  :where(.weight-bold) {
+    font-weight: 700;
+  }
 
-.align-right {
-  text-align: right;
-}
+  :where(.align-left) {
+    text-align: left;
+  }
 
-.align-stretch {
-  text-align: stretch;
+  :where(.align-center) {
+    text-align: center;
+  }
+
+  :where(.align-right) {
+    text-align: right;
+  }
+
+  :where(.align-stretch) {
+    text-align: stretch;
+  }
 }

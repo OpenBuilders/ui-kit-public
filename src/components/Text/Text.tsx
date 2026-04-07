@@ -4,27 +4,33 @@ import cn from "classnames";
 
 interface TextProps {
   children: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
   type?: TextType;
   weight?: TextWeight;
   align?: TextAlign;
   color?: TextColor;
   uppercase?: boolean;
+  truncate?: boolean;
   className?: string;
   onClick?: () => void;
 }
 
 export const Text: React.FC<TextProps> = ({
   children,
+  as = "p",
   type = "body",
   weight = "regular",
   align = "left",
   color = "primary",
   uppercase = false,
+  truncate = false,
   className,
   onClick,
 }) => {
+  const Component = as;
+
   return (
-    <div
+    <Component
       className={cn(
         styles.text,
         styles[`type-${type}`],
@@ -32,11 +38,12 @@ export const Text: React.FC<TextProps> = ({
         styles[`align-${align}`],
         styles[`color-${color}`],
         uppercase && styles.uppercase,
-        className
+        truncate && styles.truncate,
+        className,
       )}
       onClick={onClick}
     >
       {children}
-    </div>
+    </Component>
   );
 };

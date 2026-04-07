@@ -1,4 +1,6 @@
 .dialogModal {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: fixed;
   top: 0;
   left: 0;
@@ -78,3 +80,4 @@
     border-left: 1px solid var(--color-border-separator);
   }
 }
+

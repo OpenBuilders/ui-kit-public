@@ -1,7 +1,7 @@
 {
   "name": "@telegram-tools/ui-kit",
   "private": false,
-  "version": "0.2.4",
+  "version": "0.2.5-dev.17",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
@@ -33,18 +33,14 @@
     "url": "https://github.com/OpenBuilders/ui-kit-public.git"
   },
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
-    "build:all": "yarn build && yarn build-storybook",
-    "build:demo": "yarn build && yarn build-storybook && mkdir -p dist/storybook && cp -r storybook-static/* dist/storybook/",
-    "lint": "eslint .",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release:dev": "yarn build && npm publish --tag dev",
-    "release:prod": "yarn build && npm publish"
+    "release:dev": "node scripts/bump-version.mjs dev && yarn build && npm publish --tag dev",
+    "release:prod": "node scripts/bump-version.mjs prod && yarn build && npm publish"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.67.0",
     "classnames": "^2.5.1",
     "react-remove-scroll": "^2.5.0"
   },

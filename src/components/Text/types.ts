@@ -13,7 +13,7 @@ export type TextType =
   | "caption1"
   | "caption2";
 
-export type TextWeight = "light" | "regular" | "medium" | "bold";
+export type TextWeight = "light" | "regular" | "medium" | "semibold" | "bold";
 
 export type TextAlign = "left" | "center" | "right" | "stretch";
 

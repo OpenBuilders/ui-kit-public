@@ -6,7 +6,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ["autodocs"],
   argTypes: {
-    text: {
+    children: {
       control: { type: "text" },
       defaultValue: "Button",
     },
@@ -16,18 +16,14 @@ const meta: Meta<typeof Button> = {
     },
     type: {
       control: { type: "select" },
-      options: ["primary", "secondary"],
-    },
-    icon: {
-      control: false,
-      table: { disable: true },
+      options: ["primary", "secondary", "outline"],
     },
     onClick: {
       action: "clicked",
     },
   },
   args: {
-    text: "Button",
+    children: "Button",
     type: "primary",
     disabled: false,
   },

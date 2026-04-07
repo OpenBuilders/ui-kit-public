@@ -5,20 +5,18 @@ import styles from "./Button.module.scss";
 import { Spinner } from "../Spinner";
 
 interface ButtonProps {
-  text?: string;
   disabled?: boolean;
-  icon?: ReactNode;
+  children?: ReactNode;
   onClick?(): void;
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "outline";
   className?: string;
   loading?: boolean;
 }
 
 export const Button = ({
-  text,
+  children,
   onClick,
   disabled,
-  icon,
   type = "primary",
   className,
   loading = false,
@@ -33,20 +31,14 @@ export const Button = ({
     if (loading) {
       return <Spinner size="16px" color="white" />;
     }
-    return (
-      <>
-        {icon && icon}
-        {text}
-      </>
-    );
-  }, [icon, text, loading]);
+    return children;
+  }, [children, loading]);
 
   return (
     <button
       className={classNames(styles.button, styles[`type-${type}`], className)}
       onClick={handleClick}
       disabled={disabled}
-      aria-label={text}
       role="button"
     >
       {renderContent()}

@@ -31,7 +31,7 @@ export const Select = (props: SelectProps) => {
         <Text type="body" color="accent">
           {options.find((option) => option.value === value)?.label}
         </Text>
-        <Icon name="doubleChevron" size="12px" color="accent" />
+        <Icon name="doubleChevron" width="12px" height="12px" color="accent" />
       </div>
       <Dropdown
         active={isDropdownOpen}

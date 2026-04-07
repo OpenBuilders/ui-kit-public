@@ -1,13 +1,13 @@
-.input {
+:where(.input) {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   background: transparent;
   border: none;
   outline: none;
   padding: 0;
   margin: 0;
-  font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  color: inherit;
   line-height: inherit;
   background-color: transparent;
 
@@ -103,3 +103,4 @@
     cursor: default;
   }
 }
+

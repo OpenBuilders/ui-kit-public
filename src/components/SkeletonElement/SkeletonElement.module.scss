@@ -1,4 +1,6 @@
-.skeletonElement {
+:where(.skeletonElement) {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   background: linear-gradient(
     90deg,
     var(--color-fill-tertiary) 0%,
@@ -19,3 +21,4 @@
     opacity: 0.6;
   }
 }
+

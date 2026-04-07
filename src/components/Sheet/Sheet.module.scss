@@ -22,6 +22,8 @@
 }
 
 .sheet {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   position: fixed;
   top: var(--sheet-top);
   bottom: 0;
@@ -72,3 +74,4 @@
   max-height: 100%;
   padding: 32px var(--safe-area-left) 34px var(--safe-area-right);
 }
+

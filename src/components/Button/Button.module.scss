@@ -1,9 +1,10 @@
-.button {
+:where(.button) {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   font-size: 17px;
   font-weight: 590;
   border: 0;
   outline: none;
-  color: var(--color-static-white);
   background-color: var(--color-accent-primary);
   display: flex;
   align-items: center;
@@ -18,18 +19,23 @@
   opacity: 1;
   transition: 0.2s;
 
-  &:disabled {
+  &:where(:disabled) {
     opacity: 0.5;
     cursor: not-allowed;
   }
 }
 
-.type-primary {
+:where(.type-primary) {
   background-color: var(--color-accent-primary);
   color: var(--color-static-white);
 }
 
-.type-secondary {
+:where(.type-outline) {
+  background-color: var(--color-button-secondaryBackground);
+  color: var(--color-link);
+}
+
+:where(.type-secondary) {
   background-color: color-mix(
     in srgb,
     var(--color-accent-primary) 10%,

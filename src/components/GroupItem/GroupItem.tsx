@@ -1,6 +1,5 @@
 import { Icon, Text } from "@components";
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
 
 import styles from "./GroupItem.module.scss";
 
@@ -17,12 +16,9 @@ interface GroupProps {
   canDrag?: boolean;
 }
 
-const GROUP_ITEM_GAP = 10;
-const ITEM_LEFT_GAP = 16;
-
 const renderText = (text: string | React.ReactNode) => {
   if (typeof text === "string") {
-    return <Text type="body">{text}</Text>;
+    return <Text type="body" truncate>{text}</Text>;
   }
   return text;
 };
@@ -30,7 +26,7 @@ const renderText = (text: string | React.ReactNode) => {
 const renderDescription = (description: string | React.ReactNode) => {
   if (typeof description === "string") {
     return (
-      <Text type="caption1" color="secondary">
+      <Text type="caption1" color="secondary" truncate>
         {description}
       </Text>
     );
@@ -50,10 +46,6 @@ export const GroupItem = ({
   chevron,
   canDrag,
 }: GroupProps) => {
-  const beforeRef = useRef<HTMLDivElement>(null);
-
-  const [leftGapBottomBorder, setLeftGapBottomBorder] = useState(0);
-
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) {
       e.preventDefault();
@@ -66,20 +58,11 @@ export const GroupItem = ({
     }
   };
 
-  useEffect(() => {
-    if (beforeRef.current) {
-      const beforeWidth = beforeRef.current.getBoundingClientRect().width;
-      setLeftGapBottomBorder(beforeWidth + ITEM_LEFT_GAP + GROUP_ITEM_GAP);
-      return;
-    }
-
-    setLeftGapBottomBorder(ITEM_LEFT_GAP);
-  }, [before]);
-
   return (
     <div
       className={cn(
         styles.container,
+        before && styles.hasBefore,
         onClick && styles.clickable,
         disabled && styles.disabled,
         isDragging && styles.dragging
@@ -88,8 +71,10 @@ export const GroupItem = ({
       data-group-item
     >
       {before && (
-        <div ref={beforeRef} className={styles.before}>
-          {before}
+        <div className={styles.before} data-group-item-before>
+          <div className={styles.beforeContent} data-group-item-before-content>
+            {before}
+          </div>
         </div>
       )}
       <div className={styles.main}>
@@ -110,11 +95,7 @@ export const GroupItem = ({
           </div>
         )}
       </div>
-      <div
-        data-group-item-border-bottom
-        className={styles.bottomBorder}
-        style={{ left: leftGapBottomBorder }}
-      />
+      <div data-group-item-border-bottom className={styles.bottomBorder} />
     </div>
   );
 };

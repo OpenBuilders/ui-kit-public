@@ -29,7 +29,7 @@ const meta: Meta<typeof Text> = {
     },
     weight: {
       control: { type: "radio" },
-      options: ["light", "regular", "medium", "bold"],
+      options: ["light", "regular", "medium", "semibold", "bold"],
     },
     align: {
       control: { type: "radio" },

@@ -3,6 +3,7 @@ import { Icon } from "./Icon";
 import { icons } from "./icons";
 import { IconName } from "./types";
 import { Text } from "@components";
+import svgMock from "./crown.svg?raw";
 
 const colorTypeStrokeIcons = ["check", "chevron"];
 
@@ -11,7 +12,11 @@ const meta: Meta<typeof Icon> = {
   component: Icon,
   tags: ["autodocs"],
   argTypes: {
-    size: {
+    width: {
+      control: { type: "text" },
+      defaultValue: "24px",
+    },
+    height: {
       control: { type: "text" },
       defaultValue: "24px",
     },
@@ -32,12 +37,17 @@ const meta: Meta<typeof Icon> = {
         "success",
       ],
     },
+    renderAs: {
+      control: { type: "select" },
+      options: ["image", "svg"],
+    },
     borderRadius: {
       control: { type: "range", min: 0, max: 60, step: 1 },
     },
   },
   args: {
-    size: "24px",
+    width: "24px",
+    height: "24px",
     color: "primary",
   },
 };
@@ -134,7 +144,33 @@ export const CustomIcon: Story = {
   },
   args: {
     customIcon: CustomIconComponent,
-    size: "24px",
+    width: "24px",
+    height: "auto",
+  },
+  render: (args) => {
+    return <Icon {...args} />;
+  },
+};
+
+export const CustomIconInlineSvg: Story = {
+  argTypes: {
+    renderAs: {
+      control: false,
+      table: { disable: true },
+    },
+    customIcon: {
+      control: {
+        type: "text",
+      },
+    },
+  },
+  args: {
+    customIcon: svgMock,
+    renderAs: "svg",
+    color: "accent",
+    colorType: "fill",
+    width: "24px",
+    height: "24px",
   },
   render: (args) => {
     return <Icon {...args} />;

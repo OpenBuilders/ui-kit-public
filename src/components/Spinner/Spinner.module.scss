@@ -1,4 +1,6 @@
 .spinner {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
@@ -34,3 +36,4 @@
     transform: rotate(360deg);
   }
 }
+
