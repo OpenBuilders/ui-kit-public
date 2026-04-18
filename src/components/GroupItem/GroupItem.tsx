@@ -14,11 +14,16 @@ interface GroupProps {
   disabled?: boolean;
   chevron?: boolean;
   canDrag?: boolean;
+  color?: "primary" | "secondary";
 }
 
 const renderText = (text: string | React.ReactNode) => {
   if (typeof text === "string") {
-    return <Text type="body" truncate>{text}</Text>;
+    return (
+      <Text type="body" truncate>
+        {text}
+      </Text>
+    );
   }
   return text;
 };
@@ -45,6 +50,7 @@ export const GroupItem = ({
   onClick,
   chevron,
   canDrag,
+  color = "primary",
 }: GroupProps) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) {
@@ -65,7 +71,8 @@ export const GroupItem = ({
         before && styles.hasBefore,
         onClick && styles.clickable,
         disabled && styles.disabled,
-        isDragging && styles.dragging
+        isDragging && styles.dragging,
+        color && styles[`color-${color}`],
       )}
       onClick={handleClick}
       data-group-item

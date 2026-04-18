@@ -6,7 +6,6 @@
 }
 
 .group {
-  background-color: var(--color-background-section);
   border-radius: var(--border-radius-3xl);
 
   [data-group-item] {
@@ -20,6 +19,14 @@
     //   }
     // }
   }
+}
+
+.color-primary {
+  background-color: var(--color-background-section);
+}
+
+.color-secondary {
+  background-color: var(--color-background-secondary);
 }
 
 .header {
@@ -44,4 +51,3 @@
   user-select: none;
   margin: 6px 16px 0 16px;
 }
-

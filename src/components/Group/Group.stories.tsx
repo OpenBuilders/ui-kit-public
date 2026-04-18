@@ -4,6 +4,8 @@ import { Group } from "./Group";
 import { GroupItem, Text, Input, Image, Toggle } from "@components";
 import { useEffect, useState } from "storybook/internal/preview-api";
 
+const BACKGROUND_COLOR = "primary";
+
 const meta: Meta<typeof Group> = {
   title: "Components/Group",
   component: Group,
@@ -51,6 +53,7 @@ export const Default: Story = {
             show: isLoading,
             styles: { height: "200px" },
           }}
+          color={BACKGROUND_COLOR}
         >
           <GroupItem
             before={
@@ -67,6 +70,7 @@ export const Default: Story = {
             onClick={() => {
               console.log("clicked");
             }}
+            color={BACKGROUND_COLOR}
           />
           <GroupItem
             before={
@@ -79,6 +83,7 @@ export const Default: Story = {
             }
             after={<Input value={searchValue} onChange={handleChange} />}
             text="Some title"
+            color={BACKGROUND_COLOR}
           />
           <GroupItem
             before={
@@ -97,6 +102,7 @@ export const Default: Story = {
             }
             text="Some title"
             description="Some description"
+            color={BACKGROUND_COLOR}
           />
           <GroupItem
             before={
@@ -112,6 +118,7 @@ export const Default: Story = {
             onClick={() => {
               console.log("clicked");
             }}
+            color={BACKGROUND_COLOR}
           />
         </Group>
       </div>

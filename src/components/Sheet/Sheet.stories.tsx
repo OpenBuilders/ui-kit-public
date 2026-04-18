@@ -8,11 +8,13 @@ const SHEETS = {
   BASIC: () => (
     <div style={{ padding: "16px" }}>
       <p style={{ margin: 0 }}>Tap outside or the cross to close</p>
+      <p style={{ margin: "16px 0 0 0" }}>Some conent text</p>
     </div>
   ),
   SECOND: () => (
     <div style={{ padding: "16px" }}>
       <p style={{ margin: 0 }}>Second sheet content</p>
+      <p style={{ margin: "16px 0 0 0" }}>Some conent text</p>
     </div>
   ),
 };
@@ -48,7 +50,7 @@ export const Default: Story = {
   render: (args) => {
     const [isOpen, setIsOpen] = useState(args.opened);
     const [activeSheet, setActiveSheet] = useState<string | null>(
-      args.activeSheet ?? null
+      args.activeSheet ?? null,
     );
 
     useEffect(() => {

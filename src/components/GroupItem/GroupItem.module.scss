@@ -5,12 +5,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background-color: var(--color-background-section);
   border-radius: var(--border-radius-3xl);
   position: relative;
   gap: 10px;
   user-select: none;
   transition: 0.2s;
+}
+
+.color-primary {
+  background-color: var(--color-background-section);
+}
+
+.color-secondary {
+  background-color: var(--color-background-secondary);
 }
 
 .dragging {

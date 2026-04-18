@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { GroupItem } from "./GroupItem";
-import { Icon, Image } from "@components";
+import { Image } from "@components";
 
 const meta: Meta<typeof GroupItem> = {
   title: "Components/GroupItem",
@@ -44,7 +44,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     return (
-      <div style={{ width: "100%", padding: "16px" }}>
+      <div style={{ padding: "16px" }}>
         <GroupItem {...args} />
       </div>
     );

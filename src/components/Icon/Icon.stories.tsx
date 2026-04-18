@@ -3,7 +3,6 @@ import { Icon } from "./Icon";
 import { icons } from "./icons";
 import { IconName } from "./types";
 import { Text } from "@components";
-import svgMock from "./crown.svg?raw";
 
 const colorTypeStrokeIcons = ["check", "chevron"];
 
@@ -165,7 +164,7 @@ export const CustomIconInlineSvg: Story = {
     },
   },
   args: {
-    customIcon: svgMock,
+    customIcon: "",
     renderAs: "svg",
     color: "accent",
     colorType: "fill",

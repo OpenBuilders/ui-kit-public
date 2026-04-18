@@ -130,7 +130,7 @@ export function Sheet({
         aria-modal="true"
       >
         <div className={styles.cross} onClick={onClose} aria-label="Close">
-          <Icon name="cross" width="16px" height="16px" color="primary" />
+          <Icon name="cross" width="20px" height="20px" color="primary" />
         </div>
 
         <div className={styles.content}>
@@ -138,6 +138,6 @@ export function Sheet({
         </div>
       </div>
     </RemoveScroll>,
-    document.body
+    document.body,
   );
 }

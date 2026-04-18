@@ -16,6 +16,7 @@ interface GroupProps {
   footer?: React.ReactNode | string;
   action?: React.ReactNode;
   skeleton?: GroupSkeleton;
+  color?: "primary" | "secondary";
 }
 
 export const Group = ({
@@ -24,6 +25,7 @@ export const Group = ({
   footer,
   action,
   skeleton,
+  color = "primary",
 }: GroupProps) => {
   const groupRef = useRef<HTMLDivElement>(null);
   const ITEM_LEFT_GAP = 16;
@@ -36,17 +38,17 @@ export const Group = ({
 
     const updateGroupLayout = () => {
       const borderItems = groupElement.querySelectorAll<HTMLElement>(
-        "[data-group-item-border-bottom]"
+        "[data-group-item-border-bottom]",
       );
       const beforeContentItems = groupElement.querySelectorAll<HTMLElement>(
-        "[data-group-item-before-content]"
+        "[data-group-item-before-content]",
       );
 
       let maxBeforeWidth = 0;
       beforeContentItems.forEach((beforeContent) => {
         maxBeforeWidth = Math.max(
           maxBeforeWidth,
-          beforeContent.getBoundingClientRect().width
+          beforeContent.getBoundingClientRect().width,
         );
       });
 
@@ -57,11 +59,11 @@ export const Group = ({
 
       groupElement.style.setProperty(
         "--group-item-before-size",
-        `${maxBeforeWidth}px`
+        `${maxBeforeWidth}px`,
       );
       groupElement.style.setProperty(
         "--group-item-content-left-offset",
-        `${contentLeftOffset}px`
+        `${contentLeftOffset}px`,
       );
 
       borderItems.forEach((item) => {
@@ -82,7 +84,7 @@ export const Group = ({
     resizeObserver.observe(groupElement);
 
     const beforeContentItems = groupElement.querySelectorAll<HTMLElement>(
-      "[data-group-item-before-content]"
+      "[data-group-item-before-content]",
     );
     beforeContentItems.forEach((beforeContent) => {
       resizeObserver.observe(beforeContent);
@@ -116,7 +118,10 @@ export const Group = ({
           {action && <div className={styles.action}>{action}</div>}
         </div>
       )}
-      <div ref={groupRef} className={styles.group}>
+      <div
+        ref={groupRef}
+        className={cn(styles.group, color && styles[`color-${color}`])}
+      >
         {children}
       </div>
       {footer && (
