@@ -20,7 +20,15 @@ import { Input } from "@components";
 export interface InputProps {
   value: string;
   placeholder?: string;
-  type?: "text" | "email" | "password" | "number" | "tel" | "url" | "search";
+  type?:
+    | "text"
+    | "email"
+    | "password"
+    | "number"
+    | "tel"
+    | "url"
+    | "search"
+    | "date";
   disabled?: boolean;
   readOnly?: boolean;
   required?: boolean;
@@ -30,6 +38,8 @@ export interface InputProps {
   id?: string;
   maxLength?: number;
   minLength?: number;
+  min?: string;
+  max?: string;
   pattern?: string;
   size?: number;
   spellCheck?: boolean;
