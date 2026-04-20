@@ -57,10 +57,14 @@ export const Group = ({
           ? ITEM_LEFT_GAP + maxBeforeWidth + GROUP_ITEM_GAP
           : ITEM_LEFT_GAP;
 
-      groupElement.style.setProperty(
-        "--group-item-before-size",
-        `${maxBeforeWidth}px`,
-      );
+      if (maxBeforeWidth > 0) {
+        groupElement.style.setProperty(
+          "--group-item-before-size",
+          `${maxBeforeWidth}px`,
+        );
+      } else {
+        groupElement.style.removeProperty("--group-item-before-size");
+      }
       groupElement.style.setProperty(
         "--group-item-content-left-offset",
         `${contentLeftOffset}px`,
