@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Group } from "./Group";
 
-import { GroupItem, Text, Input, Image, Toggle } from "@components";
+import { GroupItem, Text, Input, Image, Toggle, Textarea } from "@components";
 import { useEffect, useState } from "storybook/internal/preview-api";
 
 const BACKGROUND_COLOR = "primary";
@@ -36,8 +36,10 @@ export const Default: Story = {
     const [isEnabled, setIsEnabled] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [textareaValue, setTextareaValue] = useState("");
 
     const handleChange = (value: string) => setSearchValue(value);
+    const handleTextareaChange = (value: string) => setTextareaValue(value);
 
     useEffect(() => {
       setTimeout(() => {
@@ -114,6 +116,30 @@ export const Default: Story = {
               />
             }
             chevron
+            text="Some title"
+            onClick={() => {
+              console.log("clicked");
+            }}
+            color={BACKGROUND_COLOR}
+          />
+          <GroupItem
+            before={
+              <Image
+                src="https://picsum.photos/400/400"
+                borderRadius="6px"
+                width="30px"
+                aspectRatio="1"
+              />
+            }
+            after={
+              <Textarea
+                value={textareaValue}
+                onChange={handleTextareaChange}
+                maxLength={200}
+                rows={3}
+                resize="none"
+              />
+            }
             text="Some title"
             onClick={() => {
               console.log("clicked");

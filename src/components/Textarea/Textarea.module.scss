@@ -1,0 +1,57 @@
+:where(.textarea) {
+  font-family: var(--font-display, var(--font-base));
+  color: var(--color-foreground-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  background-color: transparent;
+
+  // Убираем стандартные стили браузера
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  // Убираем стандартные стили для placeholder
+  &::placeholder {
+    color: inherit;
+    opacity: 0.5;
+  }
+
+  // Убираем стандартные стили для selection
+  &::selection {
+    background: inherit;
+    color: inherit;
+  }
+
+  // Убираем стандартные стили для disabled
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // Убираем стандартные стили для readonly
+  &:read-only {
+    cursor: default;
+  }
+}
+
+:where(.resize-none) {
+  resize: none;
+}
+
+:where(.resize-vertical) {
+  resize: vertical;
+}
+
+:where(.resize-horizontal) {
+  resize: horizontal;
+}
+
+:where(.resize-both) {
+  resize: both;
+}

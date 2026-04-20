@@ -4,6 +4,7 @@ export * from "./GroupItem";
 export * from "./Group";
 export * from "./Toggle";
 export * from "./Input";
+export * from "./Textarea";
 export * from "./Select";
 export * from "./Image";
 export * from "./Dropdown";
