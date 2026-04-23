@@ -39,6 +39,10 @@
     color: var(--color-state-destructive);
   }
 
+  :where(.color-success) {
+    color: var(--color-state-success);
+  }
+
   :where(.color-white) {
     color: var(--color-static-white);
   }

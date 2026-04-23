@@ -23,4 +23,5 @@ export type TextColor =
   | "tertiary"
   | "accent"
   | "danger"
-  | "white";
+  | "white"
+  | "success";
