@@ -30,9 +30,15 @@ type ToastContextValue = {
   showToast: (message: string, options?: ToastOptions) => void;
 };
 
+type ToastProviderProps = {
+  children: React.ReactNode;
+  bottomOffset?: number | string;
+};
+
 const ToastContext = createContext<ToastContextValue | undefined>(undefined);
 
 const DEFAULT_DURATION_MS = 3000;
+const DEFAULT_BOTTOM_OFFSET = 24;
 
 export const useToast = () => {
   const context = useContext(ToastContext);
@@ -42,7 +48,10 @@ export const useToast = () => {
   return context;
 };
 
-export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
+export const ToastProvider = ({
+  children,
+  bottomOffset = DEFAULT_BOTTOM_OFFSET,
+}: ToastProviderProps) => {
   const [currentToast, setCurrentToast] = useState<ToastItem | null>(null);
   const [nextToast, setNextToast] = useState<ToastItem | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -167,7 +176,11 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
     <ToastContext.Provider value={contextValue}>
       {children}
       {currentToast && (
-        <div className={styles.toastContainer} aria-live="polite">
+        <div
+          className={styles.toastContainer}
+          style={{ bottom: bottomOffset }}
+          aria-live="polite"
+        >
           <div
             className={cn(styles.toast, isVisible && styles.toastVisible)}
             onTransitionEnd={handleTransitionEnd}

@@ -5,6 +5,7 @@ type ToastDemoArgs = {
   message: string;
   duration: number;
   type?: ToastType;
+  bottomOffset: number;
 };
 
 const ToastDemo = ({ message, duration, type }: ToastDemoArgs) => {
@@ -30,7 +31,7 @@ const ToastDemo = ({ message, duration, type }: ToastDemoArgs) => {
   );
 };
 
-const meta: Meta<typeof ToastDemo> = {
+const meta = {
   title: "Components/Toast",
   component: ToastDemo,
   tags: ["autodocs"],
@@ -48,21 +49,31 @@ const meta: Meta<typeof ToastDemo> = {
       options: ["success", "error", "info"],
       defaultValue: "success",
     },
+    bottomOffset: {
+      control: { type: "number" },
+      defaultValue: 24,
+    },
   },
   args: {
     message: "Saved successfully",
     duration: 3000,
     type: "success",
+    bottomOffset: 24,
   },
-};
+} satisfies Meta<ToastDemoArgs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => (
-    <ToastProvider>
-      <ToastDemo {...args} />
+    <ToastProvider bottomOffset={args.bottomOffset}>
+      <ToastDemo
+        message={args.message}
+        duration={args.duration}
+        type={args.type}
+        bottomOffset={args.bottomOffset}
+      />
     </ToastProvider>
   ),
 };
