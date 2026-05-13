@@ -43,10 +43,29 @@ export const Image = ({
   const [isError, setIsError] = useState(false);
   const [fallbackFontSize, setFallbackFontSize] = useState(DEFAULT_SIZE / 2);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     setIsLoaded(false);
     setIsError(false);
+  }, [src]);
+
+  useEffect(() => {
+    if (!src) return;
+
+    const image = imageRef.current;
+    if (!image) return;
+
+    // Safari/TMA may keep a cached image in complete state without a reliable load event.
+    if (image.complete) {
+      if (image.naturalWidth > 0) {
+        setIsLoaded(true);
+        setIsError(false);
+        return;
+      }
+
+      setIsError(true);
+    }
   }, [src]);
 
   useEffect(() => {
@@ -132,6 +151,7 @@ export const Image = ({
         />
         <img
           {...rest}
+          ref={imageRef}
           src={src}
           alt={alt}
           className={cn(styles.img, isLoaded && styles.imgLoaded)}
