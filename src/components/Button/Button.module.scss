@@ -43,3 +43,8 @@
   );
   color: var(--color-static-white);
 }
+
+:where(.type-danger) {
+  background-color: var(--color-state-destructive);
+  color: var(--color-static-white);
+}

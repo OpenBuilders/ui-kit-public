@@ -1,6 +1,6 @@
 # Button
 
-Primary/secondary button with custom children content and loading state.
+Primary/secondary/danger button with custom children content and loading state.
 
 ## Usage
 
@@ -17,7 +17,7 @@ interface ButtonProps {
   children?: React.ReactNode;
   disabled?: boolean;
   onClick?(): void;
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "outline" | "danger";
   className?: string;
   loading?: boolean;
 }
